@@ -4,9 +4,8 @@
 \alias{ds}
 \title{Function \code{ds}}
 \usage{
-ds(big, small = NULL, downsize = getOption("downsize"),
-  length = getOption("downsize.length"), dim = getOption("downsize.dim"),
-  nrow = NULL, ncol = NULL)
+ds(big, small = NULL, downsize = getOption("downsize"), length = NULL,
+  dim = NULL, nrow = NULL, ncol = NULL)
 }
 \arguments{
 \item{big}{Big version of the object.}

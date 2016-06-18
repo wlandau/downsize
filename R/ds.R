@@ -11,8 +11,8 @@
 #' @param ncol Downsized number of columns. Overrides \code{dim}.
 ds = function(big, small = NULL, 
   downsize = getOption("downsize"), 
-  length = getOption("downsize.length"),
-  dim = getOption("downsize.dim"),
+  length = NULL,
+  dim = NULL,
   nrow = NULL,
   ncol = NULL){
   if(is.null(small)){
@@ -22,13 +22,13 @@ ds = function(big, small = NULL,
       small = small[1:n]
     } 
     if(!is.null(dim(small))){
-      if(length(dim) == 1) dim = rep(dim, length(dim(small)))
+      if(is.null(dim)) dim = dim(small)
       if(!is.null(nrow)) dim[1] = min(dim(small)[1], nrow)
       if(!is.null(ncol)) dim[2] = min(dim(small)[2], ncol)
       dim = pmin(dim(small), dim)
       indices = lapply(dim, function(i) 1:i)
       small = extract.array(small, indices = indices)
-    }
+    } 
   }
   if(downsize) return(small)
   big

@@ -45,7 +45,7 @@ Now try running the above after entering `options(downsize = TRUE)`
 
 # Use with the [workflowHelper](https://github.com/wlandau/workflowHelper) and [parallelRemake](https://github.com/wlandau/parallelRemake) packages
 
-If you're using [workflowHelper](https://github.com/wlandau/workflowHelper), you may want to use `downsize` within your custom R source code. That way, you can run a quick scaled-down version of your workflow for debugging and testing before you run the full workload. In the [workflowHelper](https://github.com/wlandau/workflowHelper) example, just include `downsize` in `packages` inside `workflow.R` replace the top few lines of `code.R` with the following.
+If you're using [workflowHelper](https://github.com/wlandau/workflowHelper), you may want to use `downsize` within your custom R source code. That way, you can run a quick scaled-down version of your workflow for debugging and testing before you run the full workload. In the [workflowHelper](https://github.com/wlandau/workflowHelper) example, just include `downsize` in `packages` inside `workflow.R` and replace the top few lines of `code.R` with the following.
 
 ```{r}
 options(downsize = TRUE)

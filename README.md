@@ -9,15 +9,15 @@ With the `ds` function, objects are downsized if
 Here are some examples. 
 
 ```{r}
+library(downsize)
 ds("Leave me alone when downsize is FALSE.", "Return me when downsize is TRUE.")
-ds(1:100)
-ds(1:100, length = 2)
-m = matrix(1:144, ncol = 12)
+ds(1:10, length = 2)
+m = matrix(1:36, ncol = 6)
 ds(m, ncol = 2)
 ds(m, nrow = 2)
-ds(m, dim = rep(2, 2))
-ds(data.frame(x = 1:25, y = 1:25))
-ds(array(0, dim = c(10, 2, 100, 2, 12)))
+ds(m, dim = c(2, 2))
+ds(data.frame(x = 1:10, y = 1:10), nrow = 5)
+dim(ds(array(0, dim = c(10, 100, 2, 300, 12)), dim = rep(3, 5)))
 ```
 
 Now try running the above after entering `options(downsize = TRUE)`

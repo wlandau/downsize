@@ -1,0 +1,17 @@
+Package: downsize
+Title: downsize
+Type: Package
+Version: 0.0
+Date: 2016-05-17
+Author: Will Landau
+Maintainer: <will.landau@gmail.com>
+Description: This package downsizes R objects. The idea is to run a downsized
+    workflow for debugging and then the regular version afterwards.
+License: GPL (>= 3)
+Depends:
+    R (>= 3.0.0)
+Imports:
+    R.utils
+Suggests:
+    testthat
+RoxygenNote: 5.0.1

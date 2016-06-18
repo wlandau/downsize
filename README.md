@@ -27,7 +27,7 @@ where `...` is replaced by the name of the tarball produced by `R CMD build`.
 
 # Usage
 
-Here are some examples. 
+Here are some examples. First, run the following lines by themselves. Then, set `options(downsize = TRUE)` and run them again to see what changes.
 
 ```{r}
 library(downsize)
@@ -42,7 +42,7 @@ ds(data.frame(x = 1:10, y = 1:10), nrow = 5)
 dim(ds(array(0, dim = c(10, 100, 2, 300, 12)), dim = rep(3, 5)))
 ```
 
-Now try running the above after entering `options(downsize = TRUE)`. For atomic objects, setting `random` to `TRUE` takes a random subset of elements instead of simply the first few.
+For atomic objects, setting `random` to `TRUE` in the `ds` function takes a random subset of elements instead of simply the first few.
 
 # Use with the [workflowHelper](https://github.com/wlandau/workflowHelper) and [parallelRemake](https://github.com/wlandau/parallelRemake) packages
 

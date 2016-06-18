@@ -5,7 +5,7 @@
 \title{Function \code{ds}}
 \usage{
 ds(big, small = NULL, downsize = getOption("downsize"), length = NULL,
-  dim = NULL, nrow = NULL, ncol = NULL)
+  dim = NULL, nrow = NULL, ncol = NULL, random = FALSE)
 }
 \arguments{
 \item{big}{Big version of the object.}
@@ -21,6 +21,9 @@ ds(big, small = NULL, downsize = getOption("downsize"), length = NULL,
 \item{nrow}{Downsized number of rows. Overrides \code{dim}.}
 
 \item{ncol}{Downsized number of columns. Overrides \code{dim}.}
+
+\item{random}{If TRUE, take a random subset of \code{big} instead
+of the first few elements, rows, columns, etc.}
 }
 \value{
 \code{big} if \code{downsize} is \code{TRUE} and \code{small} otherwise.

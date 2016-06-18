@@ -9,27 +9,16 @@
 #' @param dim Dimension to downsize arrays and matrices to.
 #' @param nrow Downsized number of rows. Overrides \code{dim}.
 #' @param ncol Downsized number of columns. Overrides \code{dim}.
-ds = function(big, small = NULL, 
-  downsize = getOption("downsize"), 
-  length = NULL,
-  dim = NULL,
-  nrow = NULL,
-  ncol = NULL){
-  if(is.null(small)){
-    small = big
-    if(is.vector(small)){
-      n = min(length(small), length)
-      small = small[1:n]
-    } 
-    if(!is.null(dim(small))){
-      if(is.null(dim)) dim = dim(small)
-      if(!is.null(nrow)) dim[1] = min(dim(small)[1], nrow)
-      if(!is.null(ncol)) dim[2] = min(dim(small)[2], ncol)
-      dim = pmin(dim(small), dim)
-      indices = lapply(dim, function(i) 1:i)
-      small = extract.array(small, indices = indices)
-    } 
-  }
-  if(downsize) return(small)
-  big
+#' @param random If TRUE, take a random subset of \code{big} instead
+#' of the first few elements, rows, columns, etc.
+ds = function(big, small = NULL, downsize = getOption("downsize"), 
+  length = NULL, dim = NULL, nrow = NULL, ncol = NULL, random = FALSE){
+  out = big
+  if(!downsize) return(out)
+  if(!is.null(small) & downsize) return(small)
+  if(!is.atomic(out)) return(out)
+  dim = fix_dim(big = out, dim = dim, length = length, nrow = nrow, ncol = ncol)
+  if(is.vector(out)) out = ds_vector(big = out, length = dim[1], random = random)
+  if(length(dim(out)) > 1) out = ds_array(big = out, dim = dim, random = random) 
+  out
 }

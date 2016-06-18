@@ -35,13 +35,14 @@ ds("Leave me alone when downsize is FALSE.", "Return me when downsize is TRUE.")
 ds(1:10, length = 2)
 m = matrix(1:36, ncol = 6)
 ds(m, ncol = 2)
+ds(m, ncol = 2, random = T)
 ds(m, nrow = 2)
 ds(m, dim = c(2, 2))
 ds(data.frame(x = 1:10, y = 1:10), nrow = 5)
 dim(ds(array(0, dim = c(10, 100, 2, 300, 12)), dim = rep(3, 5)))
 ```
 
-Now try running the above after entering `options(downsize = TRUE)`
+Now try running the above after entering `options(downsize = TRUE)`. For atomic objects, setting `random` to `TRUE` takes a random subset of elements instead of simply the first few.
 
 # Use with the [workflowHelper](https://github.com/wlandau/workflowHelper) and [parallelRemake](https://github.com/wlandau/parallelRemake) packages
 

@@ -16,7 +16,7 @@
 #' @param ncol Downsized number of columns. Overrides \code{dim}.
 #' @param random If TRUE, take a random subset of \code{big} instead
 #' of the first few elements, rows, columns, etc.
-ds = function(big, small = NULL, downsize = downsize, 
+ds = function(big, small = NULL, downsize = getOption("downsize"), 
   length = NULL, dim = NULL, nrow = NULL, ncol = NULL, random = FALSE){
   out = big
   if(!downsize) return(out)

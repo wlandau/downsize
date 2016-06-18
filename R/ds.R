@@ -1,17 +1,22 @@
 #' @title Function \code{ds}
-#' @description Conditionally downsize an R object
+#' @description Downsize an R object if \code{downsize} is \code{TRUE}.
 #' @export
-#' @return \code{big} if \code{downsize} is \code{TRUE} and \code{small} otherwise.
-#' @param big Big version of the object.
-#' @param small Small version of the object for a downsized analysis
-#' @param downsize TRUE/FALSE value, whether to downsize.
+#' @return \code{big} if \code{downsize} is \code{FALSE} and 
+#' a downsized object otherwise (either \code{small} if specified or 
+#' a select few elements of \code{big}).
+#' @param big Object to be downsized if \code{downsize} is \code{TRUE}.
+#' @param small Object to return if \code{downsize} is \code{TRUE}. If unspecified,
+#' the return object will be computed from \code{big}.
+#' @param downsize TRUE/FALSE value, whether to downsize. Defaults to the 
+#' global option \code{downsize}, which you can see with \code{getOption("downsize")}
+#' and set with \code{options(downsize = TRUE)} or \code{options(downsize = FALSE)}.
 #' @param length Length to downsize vectors to.
 #' @param dim Dimension to downsize arrays and matrices to.
 #' @param nrow Downsized number of rows. Overrides \code{dim}.
 #' @param ncol Downsized number of columns. Overrides \code{dim}.
 #' @param random If TRUE, take a random subset of \code{big} instead
 #' of the first few elements, rows, columns, etc.
-ds = function(big, small = NULL, downsize = getOption("downsize"), 
+ds = function(big, small = NULL, downsize = downsize, 
   length = NULL, dim = NULL, nrow = NULL, ncol = NULL, random = FALSE){
   out = big
   if(!downsize) return(out)

@@ -4,15 +4,18 @@
 \alias{ds}
 \title{Function \code{ds}}
 \usage{
-ds(big, small = NULL, downsize = getOption("downsize"), length = NULL,
-  dim = NULL, nrow = NULL, ncol = NULL, random = FALSE)
+ds(big, small = NULL, downsize = downsize, length = NULL, dim = NULL,
+  nrow = NULL, ncol = NULL, random = FALSE)
 }
 \arguments{
-\item{big}{Big version of the object.}
+\item{big}{Object to be downsized if \code{downsize} is \code{TRUE}.}
 
-\item{small}{Small version of the object for a downsized analysis}
+\item{small}{Object to return if \code{downsize} is \code{TRUE}. If unspecified,
+the return object will be computed from \code{big}.}
 
-\item{downsize}{TRUE/FALSE value, whether to downsize.}
+\item{downsize}{TRUE/FALSE value, whether to downsize. Defaults to the 
+global option \code{downsize}, which you can see with \code{getOption("downsize")}
+and set with \code{options(downsize = TRUE)} or \code{options(downsize = FALSE)}.}
 
 \item{length}{Length to downsize vectors to.}
 
@@ -26,9 +29,11 @@ ds(big, small = NULL, downsize = getOption("downsize"), length = NULL,
 of the first few elements, rows, columns, etc.}
 }
 \value{
-\code{big} if \code{downsize} is \code{TRUE} and \code{small} otherwise.
+\code{big} if \code{downsize} is \code{FALSE} and 
+a downsized object otherwise (either \code{small} if specified or 
+a select few elements of \code{big}).
 }
 \description{
-Conditionally downsize an R object
+Downsize an R object if \code{downsize} is \code{TRUE}.
 }
 

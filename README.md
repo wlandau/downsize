@@ -63,4 +63,4 @@ normal_dataset = function(n = 100){
 }
 ```
 
-This sets the `downsize` option and use the `ds` function to shrink the datasets. For the full scaled-up workflow, just replace the first line with `options(downsize = FALSE)`. Unfortunately, [`remake`](https://github.com/richfitz/remake) does not rebuild things when options are changed, so you'll have to run `make clean` whenever you change the `downsize` option. Use with [parallelRemake](https://github.com/wlandau/parallelRemake) is similar.
+This sets the `downsize` option and use the `ds` function to shrink the datasets. For the full scaled-up workflow, just delete the first two lines or replace `scale_down()` with `scale_up()`. Unfortunately, [`remake`](https://github.com/richfitz/remake) does not rebuild things when options are changed, so you'll have to run `make clean` whenever you change the `downsize` option. Use with [parallelRemake](https://github.com/wlandau/parallelRemake) is similar.

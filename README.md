@@ -27,7 +27,7 @@ where `...` is replaced by the name of the tarball produced by `R CMD build`.
 
 # Usage
 
-Here are some examples. First, run the following lines by themselves. Then, set `options(downsize = TRUE)` and run them again to see what changes.
+The command `ds(A, B)` says "Downsize A to B when `getOption("downsize")` is `TRUE`".
 
 ```{r}
 library(downsize)
@@ -41,6 +41,8 @@ ds(m, dim = c(2, 2))
 ds(data.frame(x = 1:10, y = 1:10), nrow = 5)
 dim(ds(array(0, dim = c(10, 100, 2, 300, 12)), dim = rep(3, 5)))
 ```
+
+After running the above commands, enter `scale_down()` and run them again to see what changes. Function `scale_down()` is equivalent to `options(downsize = TRUE)`, and `scale_up()` is equivalent to `options(downsize = FALSE)` (default setting).
 
 For atomic objects, setting `random` to `TRUE` in the `ds` function takes a random subset of elements instead of simply the first few.
 

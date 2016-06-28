@@ -1,3 +1,17 @@
+#' @title Function \code{scale_down}
+#' @description Scale down an analysis by calling \code{options(downsize = TRUE)}
+#' @export
+scale_down = function(){
+  options(downsize = TRUE)	
+}
+
+#' @title Function \code{scale_up}
+#' @description Scale up an analysis by calling \code{options(downsize = FALSE)}
+#' @export
+scale_up = function(){
+  options(downsize = FALSE)	
+}
+
 #' @title Function \code{ds}
 #' @description Downsize an R object if \code{downsize} is \code{TRUE}.
 #' @export

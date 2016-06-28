@@ -9,7 +9,7 @@ test_that("Function ds runs correctly", {
   expect_equal("jim", ds("jim", "bob", downsize = F))
   expect_equal("bob", ds("jim", "bob", downsize = T))
 
-  options(downsize = TRUE)
+  scale_down()
   expect_error(ds())
   expect_equal("bob", ds("jim", "bob"))
   expect_equal("jim", ds(c("jim", "bob"), length = 1))
@@ -33,7 +33,7 @@ test_that("Function ds runs correctly", {
   expect_equal(ds(l, ncol = 4), l)
   expect_equal(ds(l, nrow = 2, ncol = 4), l)
 
-  options(downsize = FALSE)
+  scale_up()
   expect_error(ds())
   expect_equal("jim", ds("jim", "bob"))
   expect_equal(c("jim", "bob"), ds(c("jim", "bob"), length = 1))

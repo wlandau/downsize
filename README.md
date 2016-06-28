@@ -31,7 +31,7 @@ The command `ds(A, ...)` says "Downsize A when `getOption("downsize")` is `TRUE`
 
 ```{r}
 library(downsize)
-ds("Leave me alone when downsize is FALSE.", "Return me when downsize is TRUE.")
+ds("Leave me alone when the downsize option is FALSE.", "Return me when downsize option is TRUE.")
 ds(1:10, length = 2)
 m = matrix(1:36, ncol = 6)
 ds(m, ncol = 2)
@@ -51,7 +51,8 @@ For atomic objects, setting `random` to `TRUE` in the `ds` function takes a rand
 If you're using [workflowHelper](https://github.com/wlandau/workflowHelper), you may want to use `downsize` within your custom R source code. That way, you can run a quick scaled-down version of your workflow for debugging and testing before you run the full workload. In the [workflowHelper](https://github.com/wlandau/workflowHelper) example, just include `downsize` in `packages` inside `workflow.R` and replace the top few lines of `code.R` with the following.
 
 ```{r}
-options(downsize = TRUE)
+library(downsize)
+scale_down()
 
 poisson_dataset = function(n = 100){
   ds(data.frame(x = rpois(n, 1), y = rpois(n, 5)), nrow = 10)

@@ -35,7 +35,7 @@ ds = function(big, small = NULL, downsize = getOption("downsize"),
   out = big
   if(!downsize) return(out)
   if(!is.null(small) & downsize) return(small)
-  if(!is.atomic(out)) return(out)
+  if(!is.atomic(out) & !is.data.frame(out)) return(out)
   dim = fix_dim(big = out, dim = dim, length = length, nrow = nrow, ncol = ncol)
   if(is.vector(out)) out = ds_vector(big = out, length = dim[1], random = random)
   if(length(dim(out)) > 1) out = ds_array(big = out, dim = dim, random = random) 

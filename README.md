@@ -27,7 +27,7 @@ where `...` is replaced by the name of the tarball produced by `R CMD build`.
 
 # Usage
 
-The command `ds(A, B)` says "Downsize A to B when `getOption("downsize")` is `TRUE`".
+The command `ds(A, ...)` says "Downsize A when `getOption("downsize")` is `TRUE`".
 
 ```{r}
 library(downsize)

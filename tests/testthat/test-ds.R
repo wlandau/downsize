@@ -5,12 +5,17 @@ test_that("Function ds runs correctly", {
   a = matrix(1:100, ncol = 10)
   b = array(0, dim = c(10, 2, 100, 2, 12))
   l = list(a = 0, b = 1, c = list(a = 0, b = 1))
+  data(mtcars)
 
   expect_equal("jim", ds("jim", "bob", downsize = F))
   expect_equal("bob", ds("jim", "bob", downsize = T))
 
   scale_down()
   expect_error(ds())
+  expect_equal(mtcars[1:5,], ds(mtcars, nrow = 5))
+  expect_equal(mtcars[,1:5], ds(mtcars, ncol = 5))
+  expect_equal(mtcars[1:3, 1:5], ds(mtcars, nrow = 3, ncol = 5))
+  expect_equal(mtcars[1:3, 1:5], ds(mtcars, dim = c(3, 5)))
   expect_equal("bob", ds("jim", "bob"))
   expect_equal("jim", ds(c("jim", "bob"), length = 1))
   expect_equal(a[,1:2], ds(a, ncol = 2))
@@ -35,6 +40,10 @@ test_that("Function ds runs correctly", {
 
   scale_up()
   expect_error(ds())
+  expect_equal(mtcars, ds(mtcars, nrow = 5))
+  expect_equal(mtcars, ds(mtcars, ncol = 5))
+  expect_equal(mtcars, ds(mtcars, nrow = 3, ncol = 5))
+  expect_equal(mtcars, ds(mtcars, dim = c(3, 5)))
   expect_equal("jim", ds("jim", "bob"))
   expect_equal(c("jim", "bob"), ds(c("jim", "bob"), length = 1))
   expect_equal(a, ds(a, ncol = 2))

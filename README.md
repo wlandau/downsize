@@ -54,12 +54,12 @@ If you're using [workflowHelper](https://github.com/wlandau/workflowHelper), you
 library(downsize)
 scale_down()
 
-poisson_dataset = function(n = 100){
-  ds(data.frame(x = rpois(n, 1), y = rpois(n, 5)), nrow = 10)
-}
-
 normal_dataset = function(n = 100){
   ds(data.frame(x = rnorm(n, 1), y = rnorm(n, 5)), nrow = 10)
+}
+
+poisson_dataset = function(n = 100){
+  ds(data.frame(x = rpois(n, 1), y = rpois(n, 5)), nrow = 10)
 }
 ```
 

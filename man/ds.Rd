@@ -4,8 +4,8 @@
 \alias{ds}
 \title{Function \code{ds}}
 \usage{
-ds(big, small = NA, downsize = getOption("downsize"), length = NULL,
-  dim = NULL, nrow = NULL, ncol = NULL, random = FALSE)
+ds(big, small = missing_small(), downsize = getOption("downsize"),
+  length = NULL, dim = NULL, nrow = NULL, ncol = NULL, random = FALSE)
 }
 \arguments{
 \item{big}{Object to be downsized if \code{downsize} is \code{TRUE}.}

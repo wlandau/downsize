@@ -30,11 +30,11 @@ scale_up = function(){
 #' @param ncol Downsized number of columns. Overrides \code{dim}.
 #' @param random If TRUE, take a random subset of \code{big} instead
 #' of the first few elements, rows, columns, etc.
-ds = function(big, small = NA, downsize = getOption("downsize"), 
+ds = function(big, small = missing_small(), downsize = getOption("downsize"), 
   length = NULL, dim = NULL, nrow = NULL, ncol = NULL, random = FALSE){
   out = big
   if(!downsize) return(out)
-  if(!is.na(small) & downsize) return(small)
+  if(!identical(small, missing_small()) & downsize) return(small)
   if(!is.atomic(out) & !is.data.frame(out)) return(out)
   dim = fix_dim(big = out, dim = dim, length = length, nrow = nrow, ncol = ncol)
   if(is.vector(out)) out = ds_vector(big = out, length = dim[1], random = random)

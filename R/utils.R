@@ -1,3 +1,7 @@
+missing_small = function(){
+  "..missing_small.."
+}
+
 #' @title Utility function
 #' @description Utility function
 #' @export

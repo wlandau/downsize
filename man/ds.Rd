@@ -4,7 +4,7 @@
 \alias{ds}
 \title{Function \code{ds}}
 \usage{
-ds(big, small = NULL, downsize = getOption("downsize"), length = NULL,
+ds(big, small = NA, downsize = getOption("downsize"), length = NULL,
   dim = NULL, nrow = NULL, ncol = NULL, random = FALSE)
 }
 \arguments{

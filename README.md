@@ -46,21 +46,4 @@ After running the above commands, enter `scale_down()` and run them again to see
 
 For atomic objects, setting `random` to `TRUE` in the `ds` function takes a random subset of elements instead of simply the first few.
 
-# Use with the [workflowHelper](https://github.com/wlandau/workflowHelper) and [parallelRemake](https://github.com/wlandau/parallelRemake) packages
-
-If you're using [workflowHelper](https://github.com/wlandau/workflowHelper), you may want to use `downsize` within your custom R source code. That way, you can run a quick scaled-down version of your workflow for debugging and testing before you run the full workload. In the [workflowHelper](https://github.com/wlandau/workflowHelper) example, just include `downsize` in `packages` inside `workflow.R` and replace the top few lines of `code.R` with the following.
-
-```{r}
-library(downsize)
-scale_down()
-
-normal_dataset = function(n = 16){
-  ds(data.frame(x = rnorm(n, 1), y = rnorm(n, 5)), nrow = 4)
-}
-
-poisson_dataset = function(n = 16){
-  ds(data.frame(x = rpois(n, 1), y = rpois(n, 5)), nrow = 4)
-}
-```
-
-This sets the `downsize` option and use the `ds` function to shrink the datasets. For the full scaled-up workflow, just delete the first two lines or replace `scale_down()` with `scale_up()`. Unfortunately, [`remake`](https://github.com/richfitz/remake) does not rebuild things when options are changed, so you'll have to run `make clean` whenever you change the `downsize` option. Use with [parallelRemake](https://github.com/wlandau/parallelRemake) is similar.
+The <a href="https://github.com/wlandau/downsize">downsize</a> package is compatible with <a href="https://github.com/wlandau/remakeGenerator">remakeGenerator</a> workflows, and the <a href="https://github.com/wlandau/remakeGenerator">remakeGenerator</a> README suggests one of many potential ways to use the two together.

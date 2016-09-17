@@ -2,10 +2,10 @@
 % Please edit documentation in R/ui.R
 \name{ds}
 \alias{ds}
-\title{Function \code{ds}}
+\title{Function \code{ds}. Main function of the \code{downsize} package.}
 \usage{
 ds(big, small = big, downsize = getOption("downsize"), random = FALSE,
-  length = NULL, dim = NULL, nrow = NULL, ncol = NULL)
+  length = NULL, dim = NULL, ncol = NULL, nrow = NULL)
 }
 \arguments{
 \item{big}{Object to return if \code{downsize} is \code{FALSE}.}
@@ -24,9 +24,9 @@ of the first few elements. For example, if \code{nrow = 3}, take a random
 
 \item{dim}{Downsize \code{big} to these dimensions if \code{downsize} is \code{TRUE}.}
 
-\item{nrow}{Downsize \code{big} to this number of rows if \code{downsize} is \code{TRUE}.}
-
 \item{ncol}{Downsize \code{big} to this number of columns if \code{downsize} is \code{TRUE}.}
+
+\item{nrow}{Downsize \code{big} to this number of rows if \code{downsize} is \code{TRUE}.}
 }
 \value{
 A downsized object if \code{downsize} is \code{TRUE} and \code{big} otherwise.
@@ -43,6 +43,6 @@ toggled with \code{\link{scale_down}}
 and \code{\link{scale_up}}.
 }
 \seealso{
-\code{\link{scale_down}}, \code{\link{scale_up}}
+\code{\link{scale_down}}, \code{\link{scale_up}}, \code{\link{scaling}}
 }
 

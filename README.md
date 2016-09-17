@@ -28,18 +28,13 @@ where `...` is replaced by the name of the tarball produced by `R CMD build`.
 Say you want to analyze a large dataset.
 
 ```r
-> n = 1e6
-> big_data <- data.frame(x = rnorm(n), y = rnorm(n))
-> dim(big_data)
-[1] 1000000       2
+> big_data <- data.frame(x = rnorm(1e4), y = rnorm(1e4))
 ```
 
 But for the sake of time, you want to test and debug your code on a smaller dataset.
 
 ```r
 > small_data <- head(big_data)
-> dim(small_data)
-[1] 6 2
 ```
 
 In your code, define your dataset with a call to `ds()`.
@@ -49,20 +44,21 @@ library(downsize)
 my_data <- ds(big_data, small_data)
 ```
 
-The `ds()` function executes `my_data <- big_data` if the `getOption("downsize")` is `FALSE` and `my_data <- small_data` otherwise. You can toggle the global option `downsize` with a call to `scale_up()` or `scale_down()`, and you can override it `ds(..., downsize = FALSE)`, for example. Run the following to verify this behavior.
+The `ds()` function executes `my_data <- big_data` if the `getOption("downsize")` is `FALSE` (default) and `my_data <- small_data` otherwise. You can toggle the global option `downsize` with a call to `scale_up()` or `scale_down()` (or write `ds(..., downsize = FALSE)`), and you can check the status with `scaling()`.
 
 ```r
-> my_data <- ds(big_data, small_data)
-> dim(my_data)
-[1] 1000000       2
 > scale_down()
+> scaling()
+[1] "downsized"
 > my_data <- ds(big_data, small_data)
-> dim(my_data)
-[1] 6 2
+> all(my_data == small_data)
+[1] TRUE
 > scale_up()
+> scaling()
+[1] "scaled up"
 > my_data <- ds(big_data, small_data)
-> dim(my_data)
-[1] 1000000       2
+> all(my_data == big_data)
+[1] TRUE
 ```
 
 In this case, `my_data <- ds(big_data, small_data)` is equivalent to `my_data <- ds(big_data, nrow = 6)`

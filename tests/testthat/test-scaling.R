@@ -1,0 +1,40 @@
+# library(testthat); library(downsize)
+context("scaling")
+
+test_that("Scaling functions run correctly", {
+  scale_down()
+  expect_equal(scaling(), "downsized")
+  scale_up()
+  expect_equal(scaling(), "scaled up")
+
+  scale_down()
+  library(downsize)
+  expect_equal(scaling(), "downsized")
+
+  scale_up()
+  library(downsize)
+  expect_equal(scaling(), "scaled up")
+
+  scale_down()
+  expect_equal(scaling(), "downsized")
+  expect_equal(scaling(), "downsized")
+  scale_up()
+  expect_equal(scaling(), "scaled up")
+  expect_equal(scaling(), "scaled up")
+
+  scale_down()
+  scale_down()
+  expect_equal(scaling(), "downsized")
+  scale_up()
+  scale_up()
+  expect_equal(scaling(), "scaled up")
+
+  scale_down()
+  scale_up()
+  scale_down()
+  expect_equal(scaling(), "downsized")
+  scale_up()
+  scale_down()
+  scale_up()
+  expect_equal(scaling(), "scaled up")
+})

@@ -1,6 +1,16 @@
 # library(testthat); library(downsize)
-context("")
+context("subset_length")
 
-test_that("Function  runs correctly", {
-
+test_that("Function subset_length runs correctly", {
+  set.seed(0)
+  a = list(a = 1, b = list(4, 5), c = "downsize", d = TRUE)
+  x = runif(1e4)
+  expect_error(subset_length(1:10, 0, F))
+  expect_error(subset_length(1:10, -7, F))
+  expect_equal(subset_length(1:10, 5, F), 1:5)
+  expect_equal(subset_length(1:10, NULL, F), 1:10)
+  expect_equal(subset_length(1:10, 100, F), 1:10)
+  expect_equal(subset_length(a, 2, F), a[1:2])
+  expect_equal(length(subset_length(x, 2, T)), length(x[1:2]))
+  expect_false(identical(subset_length(x, 2, T), x[1:2]))
 })

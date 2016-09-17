@@ -11,6 +11,6 @@ Call \code{options(downsize = TRUE)} to scale down a workflow.
 This affects the \code{ds()} function.
 }
 \seealso{
-\code{\link{scale_up}}, \code{\link{ds}}
+\code{\link{ds}}, \code{\link{scale_up}}, \code{\link{scaling}}
 }
 

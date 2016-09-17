@@ -1,3 +1,5 @@
+[![Travis-CI Build Status](https://travis-ci.org/NA/NA.svg?branch=master)](https://travis-ci.org/NA/NA)
+
 # downsize
 
 If you have time-consuming workflow, it may be prudent to try a downsized

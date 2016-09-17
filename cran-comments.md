@@ -1,4 +1,6 @@
-This is the first submission of `downsize` to CRAN. When I tested via `R CMD CHECK --as-cran` in R 3.3.1 on Mac OS 10.11.6, the only irregularity was
+This is the first submission of `downsize` to CRAN. 
+
+When I tested via `R CMD CHECK --as-cran` in R 3.3.1 on Mac OS 10.11.6, the only irregularity was
 
 ```
 * checking CRAN incoming feasibility ... NOTE

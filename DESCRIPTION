@@ -10,7 +10,9 @@ License: GPL (>= 3)
 Depends:
     R (>= 3.0.0)
 Imports:
-    R.utils
+    dplyr,
+    R.utils,
+    utils
 Suggests:
     testthat
 RoxygenNote: 5.0.1

@@ -1,3 +1,4 @@
+# Set the "downsize" option to FALSE when the package or namespace is loaded.
 .onLoad = function(libname, pkgname){
   opts = list(
     "downsize" = FALSE

@@ -4,36 +4,45 @@
 \alias{ds}
 \title{Function \code{ds}}
 \usage{
-ds(big, small = missing_small(), downsize = getOption("downsize"),
-  length = NULL, dim = NULL, nrow = NULL, ncol = NULL, random = FALSE)
+ds(big, small = big, downsize = getOption("downsize"), random = FALSE,
+  length = NULL, dim = NULL, nrow = NULL, ncol = NULL)
 }
 \arguments{
-\item{big}{Object to be downsized if \code{downsize} is \code{TRUE}.}
+\item{big}{Object to return if \code{downsize} is \code{FALSE}.}
 
-\item{small}{Object to return if \code{downsize} is \code{TRUE}. If unspecified,
-the return object will be computed from \code{big}.}
+\item{small}{Object to return if \code{downsize} is \code{TRUE} and all subsetter 
+arguments such as \code{length} and \code{dim} are \code{NULL}.}
 
-\item{downsize}{TRUE/FALSE value, whether to downsize. Defaults to the 
-global option \code{downsize}, which you can see with \code{getOption("downsize")}
-and set with \code{options(downsize = TRUE)} or \code{options(downsize = FALSE)}.}
+\item{downsize}{TRUE/FALSE value, whether to replace \code{big} with a downsized object.
+Defaults to the global option \code{downsize}, which you can check with}
 
-\item{length}{Length to downsize vectors to.}
+\item{random}{If \code{TRUE}, take a random subset of \code{big} instead
+of the first few elements. For example, if \code{nrow = 3}, take a random 
+3 rows instead of the first 3.}
 
-\item{dim}{Dimension to downsize arrays and matrices to.}
+\item{length}{Downsize \code{big} to this length if \code{downsize} is \code{TRUE}.}
 
-\item{nrow}{Downsized number of rows. Overrides \code{dim}.}
+\item{dim}{Downsize \code{big} to these dimensions if \code{downsize} is \code{TRUE}.}
 
-\item{ncol}{Downsized number of columns. Overrides \code{dim}.}
+\item{nrow}{Downsize \code{big} to this number of rows if \code{downsize} is \code{TRUE}.}
 
-\item{random}{If TRUE, take a random subset of \code{big} instead
-of the first few elements, rows, columns, etc.}
+\item{ncol}{Downsize \code{big} to this number of columns if \code{downsize} is \code{TRUE}.}
 }
 \value{
-\code{big} if \code{downsize} is \code{FALSE} and 
-a downsized object otherwise (either \code{small} if specified or 
-a select few elements of \code{big}).
+A downsized object if \code{downsize} is \code{TRUE} and \code{big} otherwise.
 }
 \description{
-Downsize an R object if \code{downsize} is \code{TRUE}.
+Downsize \code{big} if \code{downsize} is \code{TRUE}.
+}
+\details{
+If \code{downsize} is \code{TRUE}, a downsized replacement for \code{big} 
+will be returned. In this case, arguments \code{dim}, \code{length}, etc. take 
+precedence over \code{small}. If the \code{downsize} argument is not set manually, 
+the global option \code{downsize} will be used. The \code{downsize} option can be 
+toggled with \code{\link{scale_down}}
+and \code{\link{scale_up}}.
+}
+\seealso{
+\code{\link{scale_down}}, \code{\link{scale_up}}
 }
 

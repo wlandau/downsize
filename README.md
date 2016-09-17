@@ -2,7 +2,7 @@
 
 If you have time-consuming workflow, it may be prudent to try a downsized
 dry run first. That way, you can quickly test your entire workflow from start to finish before deploying your next serious job. 
-If you intersperse your code with calls to the `ds()` function in the `downsize` package, you can easily switch between the serious and downsized versions.
+If you intersperse your code with calls to the `ds()` function in the `downsize` package, it is trivially easy to scale down or up.
 
 # Installation
 
@@ -29,15 +29,15 @@ Say you want to analyze a large dataset.
 
 ```r
 > n = 1e6
-> large_data <- data.frame(x = rnorm(n), y = rnorm(n))
-> dim(large_data)
+> big_data <- data.frame(x = rnorm(n), y = rnorm(n))
+> dim(big_data)
 [1] 1000000       2
 ```
 
 But for the sake of time, you want to test and debug your code on a smaller dataset.
 
 ```r
-> small_data <- head(large_data)
+> small_data <- head(big_data)
 > dim(small_data)
 [1] 6 2
 ```
@@ -46,26 +46,26 @@ In your code, define your dataset with a call to `ds()`.
 
 ```r
 library(downsize)
-my_data <- ds(large_data, small_data)
+my_data <- ds(big_data, small_data)
 ```
 
-The `ds()` function executes `my_data <- large_data` if the `getOption("downsize")` is `FALSE` and `my_data <- small_data` otherwise. You can toggle the global option `downsize` with a call to `scale_up()` or `scale_down()`. Run the following to verify this behavior.
+The `ds()` function executes `my_data <- big_data` if the `getOption("downsize")` is `FALSE` and `my_data <- small_data` otherwise. You can toggle the global option `downsize` with a call to `scale_up()` or `scale_down()`, and you can override it `ds(..., downsize = FALSE)`, for example. Run the following to verify this behavior.
 
 ```r
-> my_data <- ds(large_data, small_data)
+> my_data <- ds(big_data, small_data)
 > dim(my_data)
 [1] 1000000       2
 > scale_down()
-> my_data <- ds(large_data, small_data)
+> my_data <- ds(big_data, small_data)
 > dim(my_data)
 [1] 6 2
 > scale_up()
-> my_data <- ds(large_data, small_data)
+> my_data <- ds(big_data, small_data)
 > dim(my_data)
 [1] 1000000       2
 ```
 
-In this case, `my_data <- ds(large_data, small_data)` is equivalent to `my_data <- ds(large_data, nrow = 6)`
+In this case, `my_data <- ds(big_data, small_data)` is equivalent to `my_data <- ds(big_data, nrow = 6)`
 
 For more examples, run the following lines in a new R session. Then, enter `scale_down()` and run those lines again to see what changes.
 

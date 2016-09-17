@@ -61,7 +61,7 @@ The `ds()` function executes `my_data <- big_data` if the `getOption("downsize")
 [1] TRUE
 ```
 
-In this case, `my_data <- ds(big_data, small_data)` is equivalent to `my_data <- ds(big_data, nrow = 6)`
+In this case, `my_data <- ds(big_data, small_data)` is equivalent to `my_data <- ds(big_data, nrow = 6)`.
 
 For more examples, run the following lines in a new R session. Then, enter `scale_down()` and run those lines again to see what changes.
 

@@ -4,7 +4,8 @@
 .Rapp.history
 .Rbuildignore
 .Rhistory
-Rbuildignore
+cran-comments.md
+NEWS.md
 README.md
 README.html
 vignettes/model.html

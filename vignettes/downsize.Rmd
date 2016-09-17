@@ -1,5 +1,7 @@
 ---
 title: "Package tutorial: downsize"
+author: "Will Landau"
+date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Package tutorial: downsize}

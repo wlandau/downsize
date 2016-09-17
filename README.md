@@ -1,10 +1,8 @@
-When I'm setting up a reproducible workflow in R, I don't run the 
-full scaled-up workflow right away. I first run a downsized 
-version to test and debug. This package helps with the downsizing. 
-It can be used to shrink the size of datasets, the number of 
-Monte Carlo iterations to run, etc. 
-With the `ds` function, objects are downsized if 
-`getOption("downsize")` is `TRUE` and left alone otherwise.
+# downsize
+
+If you have time-consuming workflow, it may be prudent to try a downsized
+dry run first. That way, you can quickly test your entire workflow from start to finish before deploying your next serious job. 
+If you intersperse your code with calls to the `ds()` function in the `downsize` package, you can easily switch between the serious and downsized versions.
 
 # Installation
 
@@ -25,15 +23,58 @@ R CMD INSTALL ...
 
 where `...` is replaced by the name of the tarball produced by `R CMD build`.
 
-# Usage
+# Tutorial
 
-The command `ds(A, ...)` says "Downsize A when `getOption("downsize")` is `TRUE`".
+Say you want to analyze a large dataset.
+
+```r
+> n = 1e6
+> large_data <- data.frame(x = rnorm(n), y = rnorm(n))
+> dim(large_data)
+[1] 1000000       2
+```
+
+But for the sake of time, you want to test and debug your code on a smaller dataset.
+
+```r
+> small_data <- head(large_data)
+> dim(small_data)
+[1] 6 2
+```
+
+In your code, define your dataset with a call to `ds()`.
+
+```r
+library(downsize)
+my_data <- ds(large_data, small_data)
+```
+
+The `ds()` function executes `my_data <- large_data` if the `getOption("downsize")` is `FALSE` and `my_data <- small_data` otherwise. You can toggle the global option `downsize` with a call to `scale_up()` or `scale_down()`. Run the following to verify this behavior.
+
+```r
+> my_data <- ds(large_data, small_data)
+> dim(my_data)
+[1] 1000000       2
+> scale_down()
+> my_data <- ds(large_data, small_data)
+> dim(my_data)
+[1] 6 2
+> scale_up()
+> my_data <- ds(large_data, small_data)
+> dim(my_data)
+[1] 1000000       2
+```
+
+In this case, `my_data <- ds(large_data, small_data)` is equivalent to `my_data <- ds(large_data, nrow = 6)`
+
+For more examples, run the following lines in a new R session. Then, enter `scale_down()` and run those lines again to see what changes.
 
 ```{r}
 library(downsize)
-ds("Leave me alone when the downsize option is FALSE.", "Return me when downsize option is TRUE.")
+ds("Leave me alone when the downsize option is FALSE.", 
+  "Return me when downsize option is TRUE.")
 ds(1:10, length = 2)
-m = matrix(1:36, ncol = 6)
+m <- matrix(1:36, ncol = 6)
 ds(m, ncol = 2)
 ds(m, ncol = 2, random = T)
 ds(m, nrow = 2)
@@ -41,9 +82,3 @@ ds(m, dim = c(2, 2))
 ds(data.frame(x = 1:10, y = 1:10), nrow = 5)
 dim(ds(array(0, dim = c(10, 100, 2, 300, 12)), dim = rep(3, 5)))
 ```
-
-After running the above commands, enter `scale_down()` and run them again to see what changes. Function `scale_down()` is equivalent to `options(downsize = TRUE)`, and `scale_up()` is equivalent to `options(downsize = FALSE)` (default setting).
-
-For atomic objects, setting `random` to `TRUE` in the `ds` function takes a random subset of elements instead of simply the first few.
-
-The <a href="https://github.com/wlandau/downsize">downsize</a> package is compatible with <a href="https://github.com/wlandau/remakeGenerator">remakeGenerator</a> workflows, and the <a href="https://github.com/wlandau/remakeGenerator">remakeGenerator</a> README suggests one of many potential ways to use the two together.

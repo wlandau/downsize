@@ -3,7 +3,6 @@
 export(check_small)
 export(ds)
 export(ds_error)
-export(ds_options)
 export(make_small)
 export(scale_down)
 export(scale_up)

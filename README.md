@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/wlandau/downsize.png?branch=master)](https://travis-ci.org/wlandau/downsize)
+[![Travis-CI Build Status](https://travis-ci.org/wlandau/downsize.svg?branch=master)](https://travis-ci.org/wlandau/downsize)
 
 # downsize
 

@@ -5,8 +5,9 @@
 [![codecov.io](https://codecov.io/github/wlandau/downsize/coverage.svg?branch=master)](https://codecov.io/github/wlandau/downsize?branch=master)
 
 If you have time-consuming workflow, it may be prudent to try a downsized
-dry run first. That way, you can quickly test your entire workflow from start to finish before deploying your next serious job. 
-If you intersperse your code with calls to the `ds()` function in the `downsize` package, it is trivially easy to scale down or up.
+dry run first. If you intersperse your code with calls to the `ds()` function 
+in the `downsize` package, it is trivially easy to scale the workload up or down. 
+That way, your entire workflow becomes a quick unit test with as little change as possible.
 
 # Installation
 

@@ -23,3 +23,5 @@ Possibly mis-spelled words in DESCRIPTION:
 ```
 
 I believe that "Workflows" and "workflow" are spelled correctly.
+
+Builds passed on [AppVeyor](https://www.appveyor.com/) and [Travis CI](https://travis-ci.org/). The latest build status is displayed with the badges at the top of the [README](https://github.com/wlandau/downsize/blob/master/README.md).

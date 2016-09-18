@@ -25,6 +25,21 @@ ds_error = function(arg_name){
 #' @title Internal utility function.
 #' @seealso \code{\link{ds}}
 #' @export
+#' @description Set the \code{downsize} option to \code{FALSE}. 
+#' Called by \code{.onLoad()}.
+ds_options = function(){
+  opts = list(
+    "downsize" = FALSE
+  )
+  for(o in names(opts))
+    if(!is.null(unlist(options(o))))
+      opts = opts[names(opts) != o]
+  options(opts)
+}
+
+#' @title Internal utility function.
+#' @seealso \code{\link{ds}}
+#' @export
 #' @param args named list of arguments to \code{\link{ds}}
 #' @description Utility function. Inside function ds(), make "small" out of "big" 
 #' by subsetting or some other method. This is called if any of 

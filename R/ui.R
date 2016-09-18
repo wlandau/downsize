@@ -1,7 +1,20 @@
-#' @title Function \code{scale_down}
-#' @description Call \code{options(downsize = TRUE)} to scale down a workflow.
+#' @title Function \code{downsize}
+#' @description Same as the \code{\link{scale_down}} function. 
+#' Calls \code{options(downsize = TRUE)} to scale down a workflow.
 #' This affects the \code{ds()} function.
-#' @seealso \code{\link{ds}}, \code{\link{scale_up}}, \code{\link{scaling}}
+#' @seealso \code{\link{ds}}, \code{\link{scale_down}}, \code{\link{scale_up}},
+#' \code{\link{scaling}}
+#' @export
+downsize = function(){
+  scale_down()
+}
+
+#' @title Function \code{scale_down}
+#' @description Same as the \code{\link{downsize}} function. 
+#' Calls \code{options(downsize = TRUE)} to scale down a workflow.
+#' This affects the \code{ds()} function.
+#' @seealso \code{\link{ds}}, \code{\link{downsize}}, \code{\link{scale_up}},
+#' \code{\link{scaling}}
 #' @export
 scale_down = function(){
   options(downsize = TRUE)	
@@ -37,10 +50,11 @@ scaling = function(){
 #' @seealso \code{\link{scale_down}}, \code{\link{scale_up}}, \code{\link{scaling}}
 #' @export
 #' @return A downsized object if \code{downsize} is \code{TRUE} and \code{big} otherwise.
-#' @param big Object to return if \code{downsize} is \code{FALSE}.
+#' @param big Object to return if \code{downsize} is \code{FALSE} or \code{NULL}.
 #' @param small Object to return if \code{downsize} is \code{TRUE} and all subsetter 
 #' arguments such as \code{length} and \code{dim} are \code{NULL}.
-#' @param downsize TRUE/FALSE value, whether to replace \code{big} with a downsized object.
+#' @param downsize \code{TRUE}/\code{FALSE} value (\code{NULL} counts as \code{FALSE}), 
+#' whether to replace \code{big} with a downsized object.
 #' Defaults to the global option \code{downsize}, which you can check with
 # '\code{getOption("downsize")} and set with \code{\link{scale_down}} or \code{\link{scale_up}}.
 #' @param length Downsize \code{big} to this length if \code{downsize} is \code{TRUE}.

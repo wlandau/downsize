@@ -48,10 +48,10 @@ library(downsize)
 my_data <- ds(big_data, small_data)
 ```
 
-The `ds()` function executes `my_data <- big_data` if the `getOption("downsize")` is `FALSE` (default) and `my_data <- small_data` otherwise. You can toggle the global option `downsize` with a call to `scale_up()` or `scale_down()` (or write `ds(..., downsize = FALSE)`), and you can check the status with `scaling()`.
+The `ds()` function executes `my_data <- big_data` if the `getOption("downsize")` is `FALSE` or `NULL` (default) and `my_data <- small_data` if `TRUE`. You can toggle the global option `downsize` with a call to `scale_up()` or `downsize()` (same as `scale_down()`), and you can check the status with `scaling()`.
 
 ```r
-> scale_down()
+> downsize() # same as scale_down()
 > scaling()
 [1] "downsized"
 > my_data <- ds(big_data, small_data)
@@ -65,9 +65,9 @@ The `ds()` function executes `my_data <- big_data` if the `getOption("downsize")
 [1] TRUE
 ```
 
-In this case, `my_data <- ds(big_data, small_data)` is equivalent to `my_data <- ds(big_data, nrow = 6)`.
+In this case, `my_data <- ds(big_data, small_data)` is equivalent to `my_data <- ds(big_data, nrow = 6)`. You can override the global option `downsize` with `ds(..., downsize = L)`, where `L` is `TRUE` or `FALSE`.
 
-For more examples, run the following lines in a new R session. Then, enter `scale_down()` and run those lines again to see what changes.
+For more examples, run the following lines in a new R session. Then, enter `downsize()` (same as `scale_down()`) and run those lines again to see what changes.
 
 ```{r}
 library(downsize)

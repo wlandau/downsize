@@ -7,6 +7,11 @@ test_that("Scaling functions run correctly", {
   scale_up()
   expect_equal(scaling(), "scaled up")
 
+  downsize()
+  expect_equal(scaling(), "downsized")
+  scale_up()
+  expect_equal(scaling(), "scaled up")
+
   scale_down()
   library(downsize)
   expect_equal(scaling(), "downsized")

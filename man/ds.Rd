@@ -8,12 +8,13 @@ ds(big, small = big, downsize = getOption("downsize"), random = FALSE,
   length = NULL, dim = NULL, ncol = NULL, nrow = NULL)
 }
 \arguments{
-\item{big}{Object to return if \code{downsize} is \code{FALSE}.}
+\item{big}{Object to return if \code{downsize} is \code{FALSE} or \code{NULL}.}
 
 \item{small}{Object to return if \code{downsize} is \code{TRUE} and all subsetter 
 arguments such as \code{length} and \code{dim} are \code{NULL}.}
 
-\item{downsize}{TRUE/FALSE value, whether to replace \code{big} with a downsized object.
+\item{downsize}{\code{TRUE}/\code{FALSE} value (\code{NULL} counts as \code{FALSE}), 
+whether to replace \code{big} with a downsized object.
 Defaults to the global option \code{downsize}, which you can check with}
 
 \item{random}{If \code{TRUE}, take a random subset of \code{big} instead

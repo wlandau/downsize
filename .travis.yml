@@ -6,5 +6,8 @@ cache: packages
 
 # Added manually by Will Landau
 
+r_packages:
+  - covr
+
 after_success:
   - Rscript -e 'covr::codecov()'

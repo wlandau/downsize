@@ -40,3 +40,8 @@ artifacts:
 
   - path: '\*_*.zip'
     name: Bits
+
+# Added manually by Will Landau
+
+after_success:
+  - Rscript -e 'covr::codecov()'

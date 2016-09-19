@@ -6,10 +6,15 @@
 \usage{
 scaling()
 }
+\value{
+\code{"downsized"} if \code{getOption("downsize")} is \code{TRUE} 
+and "scaled up" if \code{getOption("downsize")} is \code{FALSE} or \code{NULL}.
+}
 \description{
 Check whether the current workflow is scaled up or down.
 }
 \seealso{
-\code{\link{ds}}, \code{\link{scale_down}}, \code{\link{scale_up}}
+\code{\link{ds}}, \code{\link{downsize}}, \code{\link{scale_down}}, 
+\code{\link{scale_up}}
 }
 

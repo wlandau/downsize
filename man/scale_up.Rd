@@ -7,10 +7,11 @@
 scale_up()
 }
 \description{
-Call \code{options(downsize = TRUE)} to scale up a workflow.
+Call \code{options(downsize = FALSE)} to scale up a workflow.
 This affects the \code{ds()} function.
 }
 \seealso{
-\code{\link{ds}}, \code{\link{scale_down}}, \code{\link{scaling}}
+\code{\link{ds}}, \code{\link{downsize}}, \code{\link{scale_down}}, 
+\code{\link{scaling}}
 }
 

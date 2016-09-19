@@ -15,10 +15,12 @@ arguments such as \code{length} and \code{dim} are \code{NULL}.}
 
 \item{downsize}{\code{TRUE}/\code{FALSE} value (\code{NULL} counts as \code{FALSE}), 
 whether to replace \code{big} with a downsized object.
-Defaults to the global option \code{downsize}, which you can check with}
+Defaults to the global option \code{downsize}, which you can check with
+\code{getOption("downsize")} or the \code{\link{scaling}} function and set with functions
+\code{\link{downsize}}, \code{\link{scale_down}} or \code{\link{scale_up}}.}
 
 \item{random}{If \code{TRUE}, take a random subset of \code{big} instead
-of the first few elements. For example, if \code{nrow = 3}, take a random 
+of the first few elements. For example, if \code{nrow == 3}, take a random 
 3 rows instead of the first 3.}
 
 \item{length}{Downsize \code{big} to this length if \code{downsize} is \code{TRUE}.}
@@ -33,17 +35,19 @@ of the first few elements. For example, if \code{nrow = 3}, take a random
 A downsized object if \code{downsize} is \code{TRUE} and \code{big} otherwise.
 }
 \description{
-Downsize \code{big} if \code{downsize} is \code{TRUE}.
+Replace \code{big} with a downsized object 
+if the \code{downsize} argument (or global \code{downsize} option) is \code{TRUE}.
 }
 \details{
-If \code{downsize} is \code{TRUE}, a downsized replacement for \code{big} 
-will be returned. In this case, arguments \code{dim}, \code{length}, etc. take 
-precedence over \code{small}. If the \code{downsize} argument is not set manually, 
-the global option \code{downsize} will be used. The \code{downsize} option can be 
-toggled with \code{\link{scale_down}}
+If the \code{downsize} argument is \code{TRUE}, a downsized replacement 
+for \code{big} will be returned. In this case, arguments \code{dim}, \code{length},
+ etc. take precedence over \code{small}. If the \code{downsize} argument is not set 
+manually, the global option \code{downsize} will be used. The \code{downsize} option 
+can be toggled with functions \code{\link{downsize}} (same as \code{\link{scale_down}})
 and \code{\link{scale_up}}.
 }
 \seealso{
-\code{\link{scale_down}}, \code{\link{scale_up}}, \code{\link{scaling}}
+\code{\link{downsize}}, \code{\link{scale_down}}, \code{\link{scale_up}}, 
+\code{\link{scaling}}
 }
 

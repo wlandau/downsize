@@ -1,6 +1,5 @@
 #' @title Internal utility function.
 #' @seealso \code{\link{ds}}
-#' @export
 #' @param big argument to \code{\link{ds}}
 #' @param small argument to \code{\link{ds}}
 #' @description Utility function. 
@@ -15,7 +14,6 @@ check_small = function(big, small){
 
 #' @title Internal utility function.
 #' @seealso \code{\link{ds}}
-#' @export
 #' @param arg_name name of an argument to \code{\link{ds}}
 #' @description Utility function. Throw an error when downsizing fails.
 ds_error = function(arg_name){
@@ -24,7 +22,6 @@ ds_error = function(arg_name){
 
 #' @title Internal utility function.
 #' @seealso \code{\link{ds}}
-#' @export
 #' @param args named list of arguments to \code{\link{ds}}
 #' @description Utility function. Inside function ds(), make "small" out of "big" 
 #' by subsetting or some other method. This is called if any of 
@@ -39,7 +36,6 @@ make_small = function(args){
 
 #' @title Internal utility function.
 #' @seealso \code{\link{ds}}
-#' @export
 #' @param downsize argument to \code{\link{ds}}
 #' @description Utility function. TRUE/FALSE: should the ds() function return 
 #' a downsized replacement for "big"?
@@ -51,7 +47,6 @@ should_downsize = function(downsize){
 
 #' @title Internal utility function.
 #' @seealso \code{\link{ds}}
-#' @export
 #' @param args named list of arguments to \code{\link{ds}}
 #' @description Utility function. Should "small" be made from "big"? 
 #' Returns \code{TRUE} if at least one of the subsetting arguments

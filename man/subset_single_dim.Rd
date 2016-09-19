@@ -20,6 +20,6 @@ Utility function. Same as \link{subset_dim}, but along the
 single dimension with index \code{which_dim}.
 }
 \seealso{
-\code{\link{ds}}
+\code{\link{downsize}}
 }
 

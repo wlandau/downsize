@@ -39,8 +39,7 @@ scaling = function(){
 #'  etc. take precedence over \code{small}. If the \code{downsize} argument is not set 
 #' manually, the global option \code{downsize} will be used. The \code{downsize} option 
 #' can be toggled with functions \code{\link{scale_down}} and \code{\link{scale_up}}.
-#' @seealso \code{\link{downsize}}, \code{\link{scale_down}}, \code{\link{scale_up}}, 
-#' \code{\link{scaling}}
+#' @seealso \code{\link{scale_down}}, \code{\link{scale_up}}, \code{\link{scaling}}
 #' @export
 #' @return A downsized object if \code{downsize} is \code{TRUE} and \code{big} otherwise.
 #' @param big Object to return if \code{downsize} is \code{FALSE} or \code{NULL}.

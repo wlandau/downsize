@@ -46,7 +46,6 @@ manually, the global option \code{downsize} will be used. The \code{downsize} op
 can be toggled with functions \code{\link{scale_down}} and \code{\link{scale_up}}.
 }
 \seealso{
-\code{\link{downsize}}, \code{\link{scale_down}}, \code{\link{scale_up}}, 
-\code{\link{scaling}}
+\code{\link{scale_down}}, \code{\link{scale_up}}, \code{\link{scaling}}
 }
 

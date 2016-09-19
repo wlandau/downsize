@@ -7,13 +7,13 @@
 should_downsize(downsize)
 }
 \arguments{
-\item{downsize}{argument to \code{\link{ds}}}
+\item{downsize}{argument to \code{\link{downsize}}}
 }
 \description{
-Utility function. TRUE/FALSE: should the ds() function return 
+Utility function. TRUE/FALSE: should the \code{\link{downsize}} function return 
 a downsized replacement for "big"?
 }
 \seealso{
-\code{\link{ds}}
+\code{\link{downsize}}
 }
 

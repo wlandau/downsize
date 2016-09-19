@@ -7,7 +7,7 @@
 should_make_small(args)
 }
 \arguments{
-\item{args}{named list of arguments to \code{\link{ds}}}
+\item{args}{named list of arguments to \code{\link{downsize}}}
 }
 \description{
 Utility function. Should "small" be made from "big"? 
@@ -15,6 +15,6 @@ Returns \code{TRUE} if at least one of the subsetting arguments
 (length, dim, etc.) or similar is set.
 }
 \seealso{
-\code{\link{ds}}
+\code{\link{downsize}}
 }
 

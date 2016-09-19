@@ -1,5 +1,5 @@
 #' @title Internal utility function.
-#' @seealso \code{\link{ds}}
+#' @seealso \code{\link{downsize}}
 #' @param x object to subset
 #' @param dim new dimensions
 #' @param random logical, whether to take a random subset or just the head.
@@ -12,11 +12,11 @@ subset_dim = function(x, dim, random){
   tryCatch({
     for(i in 1:length(dim)) x = subset_single_dim(x, i, dim[i], random)
     x
-  }, error = function(e) ds_error("dim"))
+  }, error = function(e) downsize_error("dim"))
 }
 
 #' @title Internal utility function.
-#' @seealso \code{\link{ds}}
+#' @seealso \code{\link{downsize}}
 #' @param x object to subset
 #' @param length new length
 #' @param random logical, whether to take a random subset or just the head.
@@ -28,11 +28,11 @@ subset_length = function(x, length, random){
   tryCatch({
     if(random) x = sample(x, replace = FALSE)
     x[1:min(length, length(x))]
-  }, error = function(e) ds_error("length"))
+  }, error = function(e) downsize_error("length"))
 }
 
 #' @title Internal utility function.
-#' @seealso \code{\link{ds}}
+#' @seealso \code{\link{downsize}}
 #' @param x object to subset
 #' @param ncol new number of columns
 #' @param random logical, whether to take a random subset or just the head.
@@ -43,12 +43,12 @@ subset_ncol = function(x, ncol, random){
   stopifnot(ncol > 0)
   tryCatch({
     subset_single_dim(x, 2, ncol, random)
-  }, error = function(e) ds_error("ncol"))
+  }, error = function(e) downsize_error("ncol"))
 }
 
 
 #' @title Internal utility function.
-#' @seealso \code{\link{ds}}
+#' @seealso \code{\link{downsize}}
 #' @param x object to subset
 #' @param nrow new number of rows
 #' @param random logical, whether to take a random subset or just the head.
@@ -59,11 +59,11 @@ subset_nrow = function(x, nrow, random){
   stopifnot(nrow > 0)
   tryCatch({
     subset_single_dim(x, 1, nrow, random)
-  }, error = function(e) ds_error("nrow"))
+  }, error = function(e) downsize_error("nrow"))
 }
 
 #' @title Internal utility function.
-#' @seealso \code{\link{ds}}
+#' @seealso \code{\link{downsize}}
 #' @param x object to subset
 #' @param which_dim index of dimension along which to subset
 #' @param dim_length new length/size of the dimension of \code{x} with index \code{which_dim}

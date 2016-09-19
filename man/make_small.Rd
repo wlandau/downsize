@@ -7,14 +7,14 @@
 make_small(args)
 }
 \arguments{
-\item{args}{named list of arguments to \code{\link{ds}}}
+\item{args}{named list of arguments to \code{\link{downsize}}}
 }
 \description{
-Utility function. Inside function ds(), make "small" out of "big" 
+Utility function. Inside function \code{\link{downsize}}, make "small" out of "big" 
 by subsetting or some other method. This is called if any of 
-the subsetting arguments to ds() are set (length, dim, etc.)
+the subsetting arguments to \code{\link{downsize}} are set (length, dim, etc.)
 }
 \seealso{
-\code{\link{ds}}
+\code{\link{downsize}}
 }
 

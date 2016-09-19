@@ -7,9 +7,9 @@
 check_small(big, small)
 }
 \arguments{
-\item{big}{argument to \code{\link{ds}}}
+\item{big}{argument to \code{\link{downsize}}}
 
-\item{small}{argument to \code{\link{ds}}}
+\item{small}{argument to \code{\link{downsize}}}
 }
 \description{
 Utility function. 
@@ -17,6 +17,6 @@ Called if "downsize" is TRUE. Compare "small" to "big" and see if
 the result makes sense.
 }
 \seealso{
-\code{\link{ds}}
+\code{\link{downsize}}
 }
 

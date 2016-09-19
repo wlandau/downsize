@@ -1,7 +1,7 @@
 #' @title Internal utility function.
-#' @seealso \code{\link{ds}}
-#' @param big argument to \code{\link{ds}}
-#' @param small argument to \code{\link{ds}}
+#' @seealso \code{\link{downsize}}
+#' @param big argument to \code{\link{downsize}}
+#' @param small argument to \code{\link{downsize}}
 #' @description Utility function. 
 #' Called if "downsize" is TRUE. Compare "small" to "big" and see if
 #' the result makes sense.
@@ -13,19 +13,19 @@ check_small = function(big, small){
 }
 
 #' @title Internal utility function.
-#' @seealso \code{\link{ds}}
-#' @param arg_name name of an argument to \code{\link{ds}}
+#' @seealso \code{\link{downsize}}
+#' @param arg_name name of an argument to \code{\link{downsize}}
 #' @description Utility function. Throw an error when downsizing fails.
-ds_error = function(arg_name){
+downsize_error = function(arg_name){
   stop(paste0("Could not downsize \"big\" by setting argument \"", arg_name, "\"."))
 }
 
 #' @title Internal utility function.
-#' @seealso \code{\link{ds}}
-#' @param args named list of arguments to \code{\link{ds}}
-#' @description Utility function. Inside function ds(), make "small" out of "big" 
+#' @seealso \code{\link{downsize}}
+#' @param args named list of arguments to \code{\link{downsize}}
+#' @description Utility function. Inside function \code{\link{downsize}}, make "small" out of "big" 
 #' by subsetting or some other method. This is called if any of 
-#' the subsetting arguments to ds() are set (length, dim, etc.)
+#' the subsetting arguments to \code{\link{downsize}} are set (length, dim, etc.)
 make_small = function(args){
   stopifnot(is.logical(args$random))
   subset_length(args$big, args$length, args$random) %>%
@@ -35,9 +35,9 @@ make_small = function(args){
 }
 
 #' @title Internal utility function.
-#' @seealso \code{\link{ds}}
-#' @param downsize argument to \code{\link{ds}}
-#' @description Utility function. TRUE/FALSE: should the ds() function return 
+#' @seealso \code{\link{downsize}}
+#' @param downsize argument to \code{\link{downsize}}
+#' @description Utility function. TRUE/FALSE: should the \code{\link{downsize}} function return 
 #' a downsized replacement for "big"?
 should_downsize = function(downsize){
   if(is.null(downsize)) downsize = FALSE
@@ -46,8 +46,8 @@ should_downsize = function(downsize){
 }
 
 #' @title Internal utility function.
-#' @seealso \code{\link{ds}}
-#' @param args named list of arguments to \code{\link{ds}}
+#' @seealso \code{\link{downsize}}
+#' @param args named list of arguments to \code{\link{downsize}}
 #' @description Utility function. Should "small" be made from "big"? 
 #' Returns \code{TRUE} if at least one of the subsetting arguments
 #' (length, dim, etc.) or similar is set.

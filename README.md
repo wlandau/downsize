@@ -4,7 +4,7 @@
 [![Travis-CI Build Status](https://travis-ci.org/wlandau/downsize.svg?branch=master)](https://travis-ci.org/wlandau/downsize)
 [![codecov.io](https://codecov.io/github/wlandau/downsize/coverage.svg?branch=master)](https://codecov.io/github/wlandau/downsize?branch=master)
 
-If you have time-consuming workflow, it may be prudent to try a downsized
+If you have a time-consuming workflow, it may be prudent to try a downsized
 dry run first. If you intersperse your code with enough calls to `downsize::ds()`, 
 it is trivially easy to scale the workload up or down. 
 That way, your entire workflow becomes a quick unit test with as little change as possible.
@@ -14,8 +14,8 @@ That way, your entire workflow becomes a quick unit test with as little change a
 Ensure that [R](https://www.r-project.org/) is installed, as well as the dependencies in the [`DESCRIPTION`](https://github.com/wlandau/downsize/blob/master/DESCRIPTION). Open an R session and run 
 
 ```
-library(devtools)
-install_github("wlandau/downsize")
+> library(devtools)
+> install_github("wlandau/downsize")
 ```
 
 Alternatively, you can build the package from the source and install it by hand. First, ensure that [git](https://git-scm.com/) is installed. Next, open a [command line program](http://linuxcommand.org/) such as [Terminal](https://en.wikipedia.org/wiki/Terminal_%28OS_X%29) and enter the following commands.
@@ -51,7 +51,7 @@ my_data <- ds(big_data, small_data)
 
 The `ds()` function provides a choice between datasets. 
 It executes `my_data <- big_data` if `getOption("downsize")` is `FALSE` or `NULL` (default) and `my_data <- small_data` if `getOption("downsize")` is `TRUE`. 
-You can toggle the global option `downsize` with a call to `scale_up()` or `downsize()` (same as `scale_down()`), and you can check the status with `scaling()`.
+You can toggle the global option `downsize` with a call to `scale_up()` or `downsize()` (the latter of which is the same as `scale_down()`), and you can check the status with `scaling()`.
 
 ```r
 > downsize() # same as scale_down()

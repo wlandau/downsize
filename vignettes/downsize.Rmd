@@ -9,10 +9,12 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
-If you have time-consuming workflow, it may be prudent to try a downsized
+If you have a time-consuming workflow, it may be prudent to try a downsized
 dry run first. If you intersperse your code with enough calls to `downsize::ds()`, 
 it is trivially easy to scale the workload up or down. 
 That way, your entire workflow becomes a quick unit test with as little change as possible.
+
+Say you want to analyze a large dataset.
 
 ```{r}
 big_data <- data.frame(x = rnorm(1e4), y = rnorm(1e4))
@@ -33,7 +35,7 @@ my_data <- ds(big_data, small_data)
 
 The `ds()` function provides a choice between datasets. 
 It executes `my_data <- big_data` if `getOption("downsize")` is `FALSE` or `NULL` (default) and `my_data <- small_data` if `getOption("downsize")` is `TRUE`. 
-You can toggle the global option `downsize` with a call to `scale_up()` or `downsize()` (same as `scale_down()`), and you can check the status with `scaling()`.
+You can toggle the global option `downsize` with a call to `scale_up()` or `downsize()` (the latter of which is the same as `scale_down()`), and you can check the status with `scaling()`.
 
 ```{r}
 downsize() # same as scale_down()
@@ -48,7 +50,7 @@ all(my_data == big_data)
 
 In this case, `my_data <- ds(big_data, small_data)` is equivalent to `my_data <- ds(big_data, nrow = 6)`. You can override the global option `downsize` with `ds(..., downsize = L)`, where `L` is `TRUE` or `FALSE`.
 
-For more examples, run the following lines in a new R session. Then, enter `scale_down()` and run those lines again to see what changes.
+For more examples, run the following lines in a new R session. Then, enter `downsize()` (same as `scale_down()`) and run those lines again to see what changes.
 
 ```{r, eval = F}
 library(downsize)

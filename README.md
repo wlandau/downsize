@@ -75,7 +75,7 @@ For more examples, run the following lines in a new R session. Then, enter `down
 ```{r}
 library(downsize)
 ds("Leave me alone when the downsize option is FALSE.", 
-  "Return me when downsize option is TRUE.")
+  "Return me when the downsize option is TRUE.")
 ds(1:10, length = 2)
 m <- matrix(1:36, ncol = 6)
 ds(m, ncol = 2)

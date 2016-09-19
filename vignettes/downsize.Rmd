@@ -31,7 +31,9 @@ library(downsize)
 my_data <- ds(big_data, small_data)
 ```
 
-The `ds()` function executes `my_data <- big_data` if the `getOption("downsize")` is `FALSE` or `NULL` (default) and `my_data <- small_data` if `TRUE`. You can toggle the global option `downsize` with a call to `scale_up()` or `downsize()` (same as `scale_down()`), and you can check the status with `scaling()`.
+The `ds()` function provides a choice between datasets. 
+It executes `my_data <- big_data` if `getOption("downsize")` is `FALSE` or `NULL` (default) and `my_data <- small_data` if `getOption("downsize")` is `TRUE`. 
+You can toggle the global option `downsize` with a call to `scale_up()` or `downsize()` (same as `scale_down()`), and you can check the status with `scaling()`.
 
 ```{r}
 downsize() # same as scale_down()

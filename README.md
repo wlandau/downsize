@@ -4,7 +4,7 @@
 [![Travis-CI Build Status](https://travis-ci.org/wlandau/downsize.svg?branch=master)](https://travis-ci.org/wlandau/downsize)
 [![codecov.io](https://codecov.io/github/wlandau/downsize/coverage.svg?branch=master)](https://codecov.io/github/wlandau/downsize?branch=master)
 
-If you have a time-consuming workflow, it may be prudent to try a downsized
+If you have a time-consuming workflow, it may be prudent to try a scaled-down
 dry run first. If you intersperse your code with enough calls to `downsize()`, 
 it is trivially easy to scale the workload up or down. 
 That way, your entire workflow becomes a quick unit test with as little change as possible.

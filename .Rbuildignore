@@ -9,6 +9,7 @@ LICENSE
 NEWS.md
 README.md
 README.html
+TROUBLESHOOTING.md
 vignettes/downsize.html
 vignettes/downsize.log
 ^.*\.Rproj$

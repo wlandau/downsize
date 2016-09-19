@@ -52,7 +52,7 @@ You can toggle the global option `downsize` with a call to `scale_up()` or `scal
 ```r
 > scale_down()
 > scaling()
-[1] "downsized"
+[1] "scaled down"
 > my_data <- downsize(big_data, small_data)
 > all(my_data == small_data)
 [1] TRUE

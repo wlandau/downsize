@@ -7,7 +7,7 @@
 scaling()
 }
 \value{
-\code{"downsized"} if \code{getOption("downsize")} is \code{TRUE} 
+\code{"scaled down"} if \code{getOption("downsize")} is \code{TRUE} 
 and "scaled up" if \code{getOption("downsize")} is \code{FALSE} or \code{NULL}.
 }
 \description{

@@ -1,19 +1,7 @@
-#' @title Function \code{downsize}
-#' @description Same as the \code{\link{scale_down}} function. 
-#' Calls \code{options(downsize = TRUE)} to scale down a workflow.
-#' This affects the \code{ds()} function.
-#' @seealso \code{\link{ds}}, \code{\link{scale_down}}, \code{\link{scale_up}},
-#' \code{\link{scaling}}
-#' @export
-downsize = function(){
-  scale_down()
-}
-
 #' @title Function \code{scale_down}
-#' @description Same as the \code{\link{downsize}} function. 
-#' Calls \code{options(downsize = TRUE)} to scale down a workflow.
-#' This affects the \code{ds()} function.
-#' @seealso \code{\link{ds}}, \code{\link{downsize}}, \code{\link{scale_up}},
+#' @description Calls \code{options(downsize = TRUE)} to scale down a workflow.
+#' This affects the \code{\link{downsize}} function.
+#' @seealso \code{\link{downsize}}, \code{\link{downsize}}, \code{\link{scale_up}},
 #' \code{\link{scaling}}
 #' @export
 scale_down = function(){
@@ -22,8 +10,8 @@ scale_down = function(){
 
 #' @title Function \code{scale_up}
 #' @description Call \code{options(downsize = FALSE)} to scale up a workflow.
-#' This affects the \code{ds()} function.
-#' @seealso \code{\link{ds}}, \code{\link{downsize}}, \code{\link{scale_down}}, 
+#' This affects the \code{\link{downsize}} function.
+#' @seealso \code{\link{downsize}}, \code{\link{scale_down}}, 
 #' \code{\link{scaling}}
 #' @export
 scale_up = function(){
@@ -32,7 +20,7 @@ scale_up = function(){
 
 #' @title Function \code{scaling}
 #' @description Check whether the current workflow is scaled up or down.
-#' @seealso \code{\link{ds}}, \code{\link{downsize}}, \code{\link{scale_down}}, 
+#' @seealso \code{\link{downsize}}, \code{\link{scale_down}}, 
 #' \code{\link{scale_up}}
 #' @export
 #' @return \code{"downsized"} if \code{getOption("downsize")} is \code{TRUE} 
@@ -43,15 +31,14 @@ scaling = function(){
   ifelse(downsize, "downsized", "scaled up")
 }
 
-#' @title Function \code{ds}. Main function of the \code{downsize} package.
+#' @title Function \code{downsize}. Main function of the \code{downsize} package.
 #' @description Replace \code{big} with a downsized object 
 #' if the \code{downsize} argument (or global \code{downsize} option) is \code{TRUE}.
 #' @details If the \code{downsize} argument is \code{TRUE}, a downsized replacement 
 #' for \code{big} will be returned. In this case, arguments \code{dim}, \code{length},
 #'  etc. take precedence over \code{small}. If the \code{downsize} argument is not set 
 #' manually, the global option \code{downsize} will be used. The \code{downsize} option 
-#' can be toggled with functions \code{\link{downsize}} (same as \code{\link{scale_down}})
-#' and \code{\link{scale_up}}.
+#' can be toggled with functions \code{\link{scale_down}} and \code{\link{scale_up}}.
 #' @seealso \code{\link{downsize}}, \code{\link{scale_down}}, \code{\link{scale_up}}, 
 #' \code{\link{scaling}}
 #' @export
@@ -71,7 +58,7 @@ scaling = function(){
 #' @param random If \code{TRUE}, take a random subset of \code{big} instead
 #' of the first few elements. For example, if \code{nrow == 3}, take a random 
 #' 3 rows instead of the first 3.
-ds = function(big, small = big, downsize = getOption("downsize"), random = FALSE,
+downsize = function(big, small = big, downsize = getOption("downsize"), random = FALSE,
   length = NULL, dim = NULL, ncol = NULL, nrow = NULL){
   args = mget(names(formals()),sys.frame(sys.nframe()))
   if(!should_downsize(downsize)) return(big)

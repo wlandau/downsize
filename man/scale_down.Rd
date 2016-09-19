@@ -7,12 +7,11 @@
 scale_down()
 }
 \description{
-Same as the \code{\link{downsize}} function. 
 Calls \code{options(downsize = TRUE)} to scale down a workflow.
-This affects the \code{ds()} function.
+This affects the \code{\link{downsize}} function.
 }
 \seealso{
-\code{\link{ds}}, \code{\link{downsize}}, \code{\link{scale_up}},
+\code{\link{downsize}}, \code{\link{downsize}}, \code{\link{scale_up}},
 \code{\link{scaling}}
 }
 

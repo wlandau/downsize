@@ -9,6 +9,8 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
+# Tutorial
+
 If you have a time-consuming workflow, it may be prudent to try a scaled-down
 dry run first. If you intersperse your code with enough calls to `downsize()`, 
 it is trivially easy to scale the workload up or down. 
@@ -66,3 +68,6 @@ downsize(data.frame(x = 1:10, y = 1:10), nrow = 5)
 dim(downsize(array(0, dim = c(10, 100, 2, 300, 12)), dim = rep(3, 5)))
 ```
 
+# Troubleshooting
+
+Please refer to [TROUBLESHOOTING.md](https://github.com/wlandau/downsize/blob/master/TROUBLESHOOTING.md) on the [GitHub page](https://github.com/wlandau/downsize) for instructions.

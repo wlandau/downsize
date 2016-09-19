@@ -17,7 +17,7 @@ Ensure that [R](https://www.r-project.org/) is installed, as well as the depende
 install.packages("downsize_0.1.0.tar.gz", repos = NULL, type = "source")
 ```
 
-Where `"downsize_0.1.0.tar.gz"` may be replaced by another version. To install the development version, open an R session and run 
+where `"downsize_0.1.0.tar.gz"` may be replaced by another version. To install the development version, open an R session and run 
 
 ```
 > library(devtools)

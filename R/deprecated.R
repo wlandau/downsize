@@ -21,5 +21,6 @@
 ds = function(big, small = big, downsize = getOption("downsize"), random = FALSE,
   length = NULL, dim = NULL, ncol = NULL, nrow = NULL){
   .Deprecated("downsize", package="downsize")
-  downsize(big, small, downsize, random, length, dim, ncol, nrow)
+  downsize(big = big, small = small, downsize = downsize, random = random, 
+    length = length, dim = dim, ncol = ncol, nrow = nrow)
 }

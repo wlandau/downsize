@@ -50,7 +50,7 @@ identical(my_data, big_data)
 
 ## Toggle subsetting
 
-In the previous example, `my_data <- downsize(big_data, small_data)` is equivalent to `my_data <- downsize(big_data, nrow = 6)`. There are multiple ways to subset the argument called `big` when it is time to scale down.
+In the previous example, `my_data <- downsize(big_data, small_data)` is equivalent to `my_data <- downsize(big_data, nrow = 6)`. There are multiple ways to subset the argument called `big` when it is time to scale down. As in the following examples, be sure that `small` is set to `NULL` (default).
 
 ```{r}
 scale_down()
@@ -109,6 +109,7 @@ tmp <- downsize(
 x == "long code" & y == 1000
 ```
 
+The `downsize()` function checks the values of `big` and `small`, so any  code blocks passed as arguments must return non-`NULL` values. In addition, the return value of `small` must be different from and no larger than that of `big`. If subsetter arguments such as `dim` and `length` are used, they apply to the return value of `big` rather than variables defined in the code block.
 
 # Troubleshooting
 

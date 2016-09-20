@@ -44,11 +44,11 @@ You can toggle the global option `downsize` with calls to `scale_up()` and `scal
 scale_down()
 scaling() # getOption("downsize") is TRUE
 my_data <- downsize(big_data, small_data)
-all(my_data == small_data)
+identical(my_data, small_data)
 scale_up()
 scaling() # getOption("downsize") is FALSE
 my_data <- downsize(big_data, small_data)
-all(my_data == big_data)
+identical(my_data, big_data)
 ```
 
 ## Toggle subsetting
@@ -63,7 +63,8 @@ downsize(m, ncol = 2)
 downsize(m, nrow = 2)
 downsize(m, dim = c(2, 2))
 downsize(data.frame(x = 1:10, y = 1:10), nrow = 5)
-dim(downsize(array(0, dim = c(10, 100, 2, 300, 12)), dim = rep(3, 5)))
+my_array <- downsize(array(0, dim = c(10, 100, 2, 300, 12)), dim = rep(3, 5))
+dim(my_array)
 ```
 
 Set `random` to `TRUE` to take a random subset of your data.
@@ -91,26 +92,24 @@ scale_down()
 tmp <- downsize(
   big = {
     x = "long code"
-    y = 1:10
+    y = 1000
   }, 
   small = {
     x = "short code"
     y = 3.14
   })
-identical(x, "short code")
-identical(y, 3.14)
+x == "short code" & y == 3.14
 scale_up()
 tmp <- downsize(
   big = {
     x = "long code"
-    y = 1:10
+    y = 1000
   }, 
   small = {
     x = "short code"
     y = 3.14
   })
-identical(x, "long code")
-identical(y, 1:10)
+x == "long code" & y == 1000
 ```
 
 

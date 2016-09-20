@@ -8,9 +8,9 @@ test_that("Function check_downsized() runs correctly", {
   rownames(y) = NULL
   z = rbind(x, x)
   expect_error(check_downsized())
-  expect_identical(check_downsized(x, y), y)
-  expect_identical(check_downsized(z, x), x)
-  expect_identical(check_downsized(z, y), y)
+  expect_silent(check_downsized(x, y))
+  expect_silent(check_downsized(z, x))
+  expect_silent(check_downsized(z, y))
   expect_warning(check_downsized(x, x))
   expect_warning(check_downsized(y, x))
   expect_warning(check_downsized(x, z))

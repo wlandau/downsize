@@ -4,7 +4,7 @@ context("make_small")
 test_that("Function make_small() runs correctly", {
   set.seed(0)
   data(mtcars)
-  args = list(big = rbind(mtcars, mtcars), small = mtcars, random = F, downsize = T)
+  args = list(big = rbind(mtcars, mtcars), small = mtcars, random = F, downsize = T, warn = T)
   args0 = args
   expect_equal(make_small(args), args$small)
 

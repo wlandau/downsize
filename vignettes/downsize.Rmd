@@ -9,11 +9,9 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
-# Tutorial
-
 With the `downsize` package, you can toggle the test and production versions of your workflow with the flip of a `TRUE/FALSE` global option. This is helpful when your workflow takes a long time to run, but you want to test it quickly and [unit testing](http://kbroman.org/pkg_primer/pages/tests.html) is too reductionist to cover everything.
 
-## Toggle objects
+# Toggle objects
 
 Say you want to analyze a large dataset.
 
@@ -21,36 +19,42 @@ Say you want to analyze a large dataset.
 big_data <- data.frame(x = rnorm(1e4), y = rnorm(1e4))
 ```
 
-But for the sake of time, you want to test and debug your code on a smaller dataset.
-
-```{r}
-small_data <- head(big_data, n = 6)
-```
-
-In your code, select your dataset with a call to `downsize()`.
+But for the sake of time, you want to test and debug your code on a smaller dataset. In your code, select your dataset with a call to `downsize()`.
 
 ```{r}
 library(downsize)
-my_data <- downsize(big_data, small_data)
+my_data <- downsize(big_data) # downsize(big = big_data)
 ```
 
-In this basic usage, the `downsize()` function provides a choice between the two arguments. It executes `my_data <- big_data` if `getOption("downsize")` is `FALSE` or `NULL` (default) and `my_data <- small_data` if `getOption("downsize")` is `TRUE`. 
-You can toggle the global option `downsize` with calls to `scale_up()` and `scale_down()`, and you can override the option with `downsize(..., downsize = L)`, where `L` is `TRUE` or `FALSE`. You can also check the `downsize` option with the `scaling()` function, as in these examples.
+Above, `my_data` becomes `big_data` if `getOption("downsize")` is `FALSE` or `NULL` (default) and `head(big_data)` if `getOption("downsize")` is `TRUE`. 
+You can toggle the global option `downsize` with calls to `scale_up()` and `scale_down()`, and you can override the option with `downsize(..., downsize = L)`, where `L` is `TRUE` or `FALSE`.
 
 ```{r}
 scale_down()
 scaling() # getOption("downsize") is TRUE
-my_data <- downsize(big_data, small_data)
-identical(my_data, small_data)
+my_data <- downsize(big_data) # downsize(big = big_data)
+identical(my_data, head(big_data))
 scale_up()
 scaling() # getOption("downsize") is FALSE
-my_data <- downsize(big_data, small_data)
+my_data <- downsize(big_data) # downsize(big = big_data)
 identical(my_data, big_data)
 ```
 
-## Toggle subsetting
+Equivalently, you can provide a replacement for `big_data` using argument `small` in `downsize()`.
 
-In the previous example, `my_data <- downsize(big_data, small_data)` is equivalent to `my_data <- downsize(big_data, nrow = 6)`. There are multiple ways to subset the argument called `big` when it is time to scale down. As in the following examples, be sure that `small` is set to `NULL` (default).
+```{r}
+small_data <- data.frame(x = runif(16), y = runif(16))
+scale_down()
+scaling() # getOption("downsize") is TRUE
+my_data <- downsize(big_data, small_data) # downsize(big = big_data, small = small_data)
+identical(my_data, small_data)
+```
+
+If you set `small` yourself, be sure that subsequent code can accept both `small` and `big`. For example, if `small` is a data frame and `big` is a matrix, your code may work fine in test mode and break in production mode. In addition, `downsize()` will warn you if `small` is identical to or bigger in memory than `big` (disable with `downsize(..., warn = FALSE`)). See the next section for a safer alternative.
+
+# Toggle subsetting
+
+The command `my_data <- downsize(big = big_data)` is equivalent to `my_data <- downsize(big = big_data, nrow = 6)`. There are multiple ways to subset argument `big` in `downsize()` when it is time to scale down. As in the following examples, be sure that `small` is set to `NULL` (default).
 
 ```{r}
 scale_down()
@@ -60,18 +64,24 @@ downsize(m, ncol = 2)
 downsize(m, nrow = 2)
 downsize(m, dim = c(2, 2))
 downsize(data.frame(x = 1:10, y = 1:10), nrow = 5)
-my_array <- downsize(array(0, dim = c(10, 100, 2, 300, 12)), dim = rep(3, 5))
+x = array(0, dim = c(10, 100, 2, 300, 12))
+dim(x)
+my_array <- downsize(x, dim = rep(3, 5))
+dim(my_array)
+my_array <- downsize(x, dim = c(1, 4))
+dim(my_array)
+my_array <- downsize(x, ncol = 1)
 dim(my_array)
 ```
 
-Set `random` to `TRUE` to take a random subset of your data.
+Set `random` to `TRUE` to take a random subset of your data rather than just the first few rows or columns.
 
 ```{r}
 set.seed(6)
 downsize(m, ncol = 2, random = T)
 ```
 
-## Toggle code blocks
+# Toggle code blocks
 
 You can interchange entire blocks of code based on the scaling of the workload.
 
@@ -82,7 +92,7 @@ scale_up()
 downsize(big = {a = 1; a + 10}, small = {a = 1; a + 1})
 ```
 
-Variables set in the code blocks are available after calls to `downsize()`.
+Variables set in code blocks are available after calls to `downsize()`.
 
 ```{r}
 scale_down()
@@ -109,7 +119,7 @@ tmp <- downsize(
 x == "long code" & y == 1000
 ```
 
-The `downsize()` function checks the values of `big` and `small`, so any  code blocks passed as arguments must return non-`NULL` values. In addition, the return value of `small` must be different from and no larger than that of `big`. If subsetter arguments such as `dim` and `length` are used, they apply to the return value of `big` rather than variables defined in the code block.
+The `downsize()` function checks the values of `big` and `small`, so any  code blocks passed as arguments must return non-`NULL` values. To avoid warnings, the return value of `small` should be different from and no larger in memory than that of `big` (or just call `downsize(..., warn = FALSE)`). If subsetter arguments such as `dim` and `length` are used, they apply to the return value of `big` rather than any variables defined in the code block.
 
 # Troubleshooting
 

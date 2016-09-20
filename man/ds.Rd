@@ -4,8 +4,8 @@
 \alias{ds}
 \title{Function \code{ds}. Deprecated.}
 \usage{
-ds(big, small = NULL, downsize = getOption("downsize"), random = FALSE,
-  length = NULL, dim = NULL, ncol = NULL, nrow = NULL)
+ds(big, small = NULL, downsize = getOption("downsize"), warn = TRUE,
+  random = FALSE, length = NULL, dim = NULL, ncol = NULL, nrow = NULL)
 }
 \arguments{
 \item{big}{Object to return if \code{downsize} is \code{FALSE} or \code{NULL}.}
@@ -18,6 +18,9 @@ whether to replace \code{big} with a downsized object.
 Defaults to the global option \code{downsize}, which you can check with
 \code{getOption("downsize")} or the \code{\link{scaling}} function and set with functions
 \code{\link{downsize}}, \code{\link{scale_down}} or \code{\link{scale_up}}.}
+
+\item{warn}{\code{TRUE/FALSE} option to warn the user if \code{big} and \code{small}
+are identical or \code{big} is smaller in memory than \code{small}.}
 
 \item{random}{If \code{TRUE}, take a random subset of \code{big} instead
 of the first few elements. For example, if \code{nrow == 3}, take a random 

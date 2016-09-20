@@ -1,15 +1,22 @@
 #' @title Internal utility function.
 #' @seealso \code{\link{downsize}}
 #' @param args named list of arguments to \code{\link{downsize}}
+#' @description Utility function. Make downsized object out of  
+#' argument \code{small} to \code{\link{downsize}}.
+arg_small = function(args){
+  if(use_arg_small(args) & is.null(args$small))
+    args$small = head(args$big)
+  args$small
+}
+
+#' @title Internal utility function.
+#' @seealso \code{\link{downsize}}
+#' @param args named list of arguments to \code{\link{downsize}}
 #' @description Utility function. Checks that arguments are valid.
 check_args = function(args){
-  if(!is.logical(args$random))
-    stop("the \"random\" argument to the downsize() function must be TRUE or FALSE")
-  if(use_arg_small(args) & is.null(args$small))
-    stop("not enough information to downsize.")
+  stopifnot(is.logical(args$warn) & is.logical(args$random))
   if(!use_arg_small(args) & !is.null(args$small))
-    stop("conflicts in arguments: \"small\" cannot be set at the same time as arguments that subset \"big\" (such as \"length\").")
-  args
+    stop("argument \"small\" cannot be used alongside subsetters like \"dim\" and \"length\".")
 }
 
 #' @title Internal utility function.
@@ -19,10 +26,9 @@ check_args = function(args){
 #' @description Utility function. Checks if downsizing really happened.
 check_downsized = function(big, small){
   if(identical(big, small))
-    warning("tried to downsize \"big\" to \"small\", but \"big\" and \"small\" are identical.")
+    warning("downsized object is identical to \"big\".")
   if(object.size(big) < object.size(small))
-    warning("tried to downsize \"big\" to \"small\", but \"big\" takes up less memory than \"small\".")
-  small 
+    warning("downsized object is bigger in memory than \"big\".")
 }
 
 #' @title Internal utility function.
@@ -30,7 +36,7 @@ check_downsized = function(big, small){
 #' @param arg_name name of an argument to \code{\link{downsize}}
 #' @description Utility function. Throw an error when downsizing fails.
 downsize_error = function(arg_name){
-  stop(paste0("Could not downsize \"big\" by setting argument \"", arg_name, "\"."))
+  stop(paste0("could not downsize \"big\" by setting argument \"", arg_name, "\"."))
 }
 
 #' @title Internal utility function.
@@ -42,7 +48,7 @@ downsize_error = function(arg_name){
 #' the subsetting arguments to \code{\link{downsize}} are set (length, dim, etc.)
 make_small = function(args){
   check_args(args)
-  if(use_arg_small(args)) return(args$small)
+  if(use_arg_small(args)) return(arg_small(args))
   subset_length(args$big, args$length, args$random) %>%
     subset_dim(args$dim, args$random) %>%
     subset_nrow(args$nrow, args$random) %>%
@@ -67,6 +73,6 @@ should_downsize = function(downsize){
 #' \code{\link{downsize}} be used? Returns \code{TRUE} if none 
 #' of the subsetting arguments (length, dim, etc.) or similar is set.
 use_arg_small = function(args){
-  subsetters = args[setdiff(names(args), c("big", "small", "downsize", "random"))]
+  subsetters = args[setdiff(names(args), c("big", "small", "downsize", "warn", "random"))]
   all(sapply(subsetters, is.null))
 }

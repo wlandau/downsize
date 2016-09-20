@@ -1,4 +1,4 @@
 #' @importFrom dplyr %>%
 #' @importFrom R.utils extract.array
-#' @importFrom utils object.size
+#' @importFrom utils head object.size
 NULL

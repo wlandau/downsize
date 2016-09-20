@@ -4,17 +4,17 @@
 [![Travis-CI Build Status](https://travis-ci.org/wlandau/downsize.svg?branch=master)](https://travis-ci.org/wlandau/downsize)
 [![codecov.io](https://codecov.io/github/wlandau/downsize/coverage.svg?branch=master)](https://codecov.io/github/wlandau/downsize?branch=master)
 
-With the `downsize` package, you can toggle the test and production versions of your workflow with the flip of a `TRUE/FALSE` global option. This is helpful when your workflow takes a long time to run, but you want to test it quickly and [unit testing](http://kbroman.org/pkg_primer/pages/tests.html) is too reductionist to cover everything.
+With the `downsize` package, you can toggle the test and production versions of your workflow with the flip of a `TRUE/FALSE` global option. This is helpful when your workflow takes a long time to run, you want to test it quickly, and [unit testing](http://kbroman.org/pkg_primer/pages/tests.html) is too reductionist to cover everything.
 
 # Installation
 
-Ensure that [R](https://www.r-project.org/) is installed, as well as the dependencies in the [`DESCRIPTION`](https://github.com/wlandau/downsize/blob/master/DESCRIPTION). Then, you can install one of the [stable releases](https://github.com/wlandau/downsize/releases). Download the `.tar.gz` file, open an R session, and run the following.
+Ensure that [R](https://www.r-project.org/) is installed, as well as the dependencies in the [`DESCRIPTION`](https://github.com/wlandau/downsize/blob/master/DESCRIPTION). Then, you can install one of the [stable releases](https://github.com/wlandau/downsize/releases). Download `downsize_<VERSION>.tar.gz` (where `<VERSION>` is the version number), open an R session, and run the following.
 
 ```r
 install.packages("downsize_<VERSION>.tar.gz", repos = NULL, type = "source")
 ```
 
-where `<VERSION>` is the version number. To install the development version, open an R session and run 
+To install the development version, open an R session and run 
 
 ```
 > library(devtools)

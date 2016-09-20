@@ -5,7 +5,28 @@ test_that("Deprecated function ds() warns correctly", {
   expect_warning(x <- ds(1:10, 2))
 })
 
-test_that("Function ds() runs correctly", suppressWarnings({
+test_that("Deprecated function ds() runs correctly", suppressWarnings({
+  for(i in 1:3){
+    scale_down()
+    ds({
+      x = 1:10
+    }, {
+      x = "char"
+      y = 3.14
+    })
+    expect_equal(x, "char")
+    expect_equal(y, 3.14)
+
+    scale_up()
+    ds({
+      x = 1:10
+    }, {
+      x = "char"
+      y = 3.14
+    })
+    expect_equal(x, 1:10)
+  }
+
   set.seed(0)
   data(mtcars)
   small = mtcars
@@ -18,6 +39,11 @@ test_that("Function ds() runs correctly", suppressWarnings({
   expect_equal(ds(big, small), small)
   expect_equal(ds(big, small), small)
 
+  expect_warning(ds(1, 1))
+  expect_warning(x <- ds(1, rnorm(1e3)))
+
+  expect_error(ds(big))
+  expect_error(ds(big, small = 1, ncol = 0))
   expect_error(ds(big, ncol = 0))
   expect_error(ds(big, nrow = 0))
   expect_error(ds(big, dim = c(0, 0)))

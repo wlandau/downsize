@@ -1,7 +1,7 @@
 # library(testthat); library(downsize)
-context("should_make_small")
+context("use_arg_small")
 
-test_that("Function should_make_small() runs correctly", {
+test_that("Function use_arg_small() runs correctly", {
   data(mtcars)
   l = list(big = rbind(mtcars, mtcars), small = mtcars, downsize = TRUE, random = TRUE)
 
@@ -14,7 +14,7 @@ test_that("Function should_make_small() runs correctly", {
     c(l, length = 5, dim = 5, nrow = 7),
     c(l, length = 5, dim = 5, ncol = 1, nrow = 7))
   
-  expect_error(should_make_small())
-  expect_false(should_make_small(l))
-  for(args in k) expect_true(should_make_small(args))
+  expect_error(use_arg_small())
+  expect_true(use_arg_small(l))
+  for(args in k) expect_false(use_arg_small(args))
 })

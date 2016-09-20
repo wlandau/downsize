@@ -57,11 +57,11 @@ scaling = function(){
 #' @param random If \code{TRUE}, take a random subset of \code{big} instead
 #' of the first few elements. For example, if \code{nrow == 3}, take a random 
 #' 3 rows instead of the first 3.
-downsize = function(big, small = big, downsize = getOption("downsize"), random = FALSE,
+downsize = function(big, small = NULL, downsize = getOption("downsize"), random = FALSE,
   length = NULL, dim = NULL, ncol = NULL, nrow = NULL){
-  args = mget(names(formals()),sys.frame(sys.nframe()))
   if(!should_downsize(downsize)) return(big)
-  if(should_make_small(args)) small = make_small(args)
+  args = mget(names(formals()),sys.frame(sys.nframe()))
+  small = make_small(args)
   check_small(big, small)
   small
 }

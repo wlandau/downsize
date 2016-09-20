@@ -2,6 +2,27 @@
 context("downsize")
 
 test_that("Function downsize() runs correctly", {
+  for(i in 1:3){
+    scale_down()
+    downsize({
+      x = 1:10
+    }, {
+      x = "char"
+      y = 3.14
+    })
+    expect_equal(x, "char")
+    expect_equal(y, 3.14)
+
+    scale_up()
+    downsize({
+      x = 1:10
+    }, {
+      x = "char"
+      y = 3.14
+    })
+    expect_equal(x, 1:10)
+  }
+
   set.seed(0)
   data(mtcars)
   small = mtcars
@@ -14,10 +35,11 @@ test_that("Function downsize() runs correctly", {
   expect_equal(downsize(big, small), small)
   expect_equal(downsize(big, small), small)
 
-  expect_warning(downsize(big))
   expect_warning(downsize(1, 1))
   expect_warning(x <- downsize(1, rnorm(1e3)))
 
+  expect_error(downsize(big))
+  expect_error(downsize(big, small = 1, ncol = 0))
   expect_error(downsize(big, ncol = 0))
   expect_error(downsize(big, nrow = 0))
   expect_error(downsize(big, dim = c(0, 0)))

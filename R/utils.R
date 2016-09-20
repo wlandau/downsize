@@ -1,5 +1,16 @@
 #' @title Internal utility function.
 #' @seealso \code{\link{downsize}}
+#' @param args named list of arguments to \code{\link{downsize}}
+#' @description Utility function. Checks that arguments are valid.
+check_args = function(args){
+  if(use_arg_small(args) & is.null(args$small))
+    stop("not enough information to downsize.")
+  if(!use_arg_small(args) & !is.null(args$small))
+    stop("conflicts in arguments: \"small\" cannot be set at the same time as arguments that subset \"big\" (such as \"length\").")
+}
+
+#' @title Internal utility function.
+#' @seealso \code{\link{downsize}}
 #' @param big argument to \code{\link{downsize}}
 #' @param small argument to \code{\link{downsize}}
 #' @description Utility function. 
@@ -23,10 +34,13 @@ downsize_error = function(arg_name){
 #' @title Internal utility function.
 #' @seealso \code{\link{downsize}}
 #' @param args named list of arguments to \code{\link{downsize}}
-#' @description Utility function. Inside function \code{\link{downsize}}, make "small" out of "big" 
+#' @description Utility function. Inside function \code{\link{downsize}}, 
+#' make "small" out of "big" 
 #' by subsetting or some other method. This is called if any of 
 #' the subsetting arguments to \code{\link{downsize}} are set (length, dim, etc.)
 make_small = function(args){
+  check_args(args)
+  if(use_arg_small(args)) return(args$small)
   stopifnot(is.logical(args$random))
   subset_length(args$big, args$length, args$random) %>%
     subset_dim(args$dim, args$random) %>%
@@ -48,10 +62,10 @@ should_downsize = function(downsize){
 #' @title Internal utility function.
 #' @seealso \code{\link{downsize}}
 #' @param args named list of arguments to \code{\link{downsize}}
-#' @description Utility function. Should "small" be made from "big"? 
-#' Returns \code{TRUE} if at least one of the subsetting arguments
-#' (length, dim, etc.) or similar is set.
-should_make_small = function(args){
+#' @description Utility function. Should the "small" argument to 
+#' \code{\link{downsize}} be used? Returns \code{TRUE} if none 
+#' of the subsetting arguments (length, dim, etc.) or similar is set.
+use_arg_small = function(args){
   subsetters = args[setdiff(names(args), c("big", "small", "downsize", "random"))]
-  !all(sapply(subsetters, is.null))
+  all(sapply(subsetters, is.null))
 }

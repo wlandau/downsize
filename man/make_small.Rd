@@ -10,7 +10,8 @@ make_small(args)
 \item{args}{named list of arguments to \code{\link{downsize}}}
 }
 \description{
-Utility function. Inside function \code{\link{downsize}}, make "small" out of "big" 
+Utility function. Inside function \code{\link{downsize}}, 
+make "small" out of "big" 
 by subsetting or some other method. This is called if any of 
 the subsetting arguments to \code{\link{downsize}} are set (length, dim, etc.)
 }

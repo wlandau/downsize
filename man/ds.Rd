@@ -4,7 +4,7 @@
 \alias{ds}
 \title{Function \code{ds}. Deprecated.}
 \usage{
-ds(big, small = big, downsize = getOption("downsize"), random = FALSE,
+ds(big, small = NULL, downsize = getOption("downsize"), random = FALSE,
   length = NULL, dim = NULL, ncol = NULL, nrow = NULL)
 }
 \arguments{

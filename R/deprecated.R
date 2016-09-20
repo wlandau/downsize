@@ -18,7 +18,7 @@
 #' @param random If \code{TRUE}, take a random subset of \code{big} instead
 #' of the first few elements. For example, if \code{nrow == 3}, take a random 
 #' 3 rows instead of the first 3.
-ds = function(big, small = big, downsize = getOption("downsize"), random = FALSE,
+ds = function(big, small = NULL, downsize = getOption("downsize"), random = FALSE,
   length = NULL, dim = NULL, ncol = NULL, nrow = NULL){
   .Deprecated("downsize", package="downsize")
   downsize(big = big, small = small, downsize = downsize, random = random, 

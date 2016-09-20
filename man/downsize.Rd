@@ -4,7 +4,7 @@
 \alias{downsize}
 \title{Function \code{downsize}. Main function of the \code{downsize} package.}
 \usage{
-downsize(big, small = big, downsize = getOption("downsize"),
+downsize(big, small = NULL, downsize = getOption("downsize"),
   random = FALSE, length = NULL, dim = NULL, ncol = NULL, nrow = NULL)
 }
 \arguments{

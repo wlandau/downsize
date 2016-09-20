@@ -16,6 +16,8 @@ dry run first. If you intersperse your code with enough calls to `downsize()`,
 it is trivially easy to scale the workload up or down. 
 That way, your entire workflow becomes a quick unit test with as little change as possible.
 
+## Toggle objects
+
 Say you want to analyze a large dataset.
 
 ```{r}
@@ -35,29 +37,26 @@ library(downsize)
 my_data <- downsize(big_data, small_data)
 ```
 
-The `downsize()` function provides a choice between datasets. 
-It executes `my_data <- big_data` if `getOption("downsize")` is `FALSE` or `NULL` (default) and `my_data <- small_data` if `getOption("downsize")` is `TRUE`. 
-You can toggle the global option `downsize` with a call to `scale_up()` or `scale_down()`, and you can check the status with `scaling()`.
+In this basic usage, the `downsize()` function provides a choice between the two arguments. It executes `my_data <- big_data` if `getOption("downsize")` is `FALSE` or `NULL` (default) and `my_data <- small_data` if `getOption("downsize")` is `TRUE`. 
+You can toggle the global option `downsize` with calls to `scale_up()` and `scale_down()`, and you can override it with `downsize(..., downsize = L)`, where `L` is `TRUE` or `FALSE`. You can also check the `downsize` option with the `scaling()` function, as in these examples.
 
 ```{r}
 scale_down()
-scaling()
+scaling() # getOption("downsize") is TRUE
 my_data <- downsize(big_data, small_data)
 all(my_data == small_data)
 scale_up()
-scaling()
+scaling() # getOption("downsize") is FALSE
 my_data <- downsize(big_data, small_data)
 all(my_data == big_data)
 ```
 
-In this case, `my_data <- downsize(big_data, small_data)` is equivalent to `my_data <- downsize(big_data, nrow = 6)`. You can override the global option `downsize` with `downsize(..., downsize = L)`, where `L` is `TRUE` or `FALSE`.
+## Toggle subsetting
 
-For more examples, run the following lines in a new R session. Then, enter `scale_down()` and run those lines again to see what changes.
+In the previous example, `my_data <- downsize(big_data, small_data)` is equivalent to `my_data <- downsize(big_data, nrow = 6)`. There are multiple ways to subset the argument called `big` when it is time to scale down.
 
-```{r, eval = F}
-library(downsize)
-downsize("Leave me alone when the downsize option is FALSE.", 
-  "Return me when the downsize option is TRUE.")
+```{r}
+scale_down()
 downsize(1:10, length = 2)
 m <- matrix(1:36, ncol = 6)
 downsize(m, ncol = 2)
@@ -67,6 +66,38 @@ downsize(m, dim = c(2, 2))
 downsize(data.frame(x = 1:10, y = 1:10), nrow = 5)
 dim(downsize(array(0, dim = c(10, 100, 2, 300, 12)), dim = rep(3, 5)))
 ```
+
+## Toggle code blocks
+
+You can interchange entire blocks of code based on the scaling of the workload.
+
+```{r}
+scale_down()
+tmp <- downsize(
+  big = {
+    x = "long code"
+    y = 1:10
+  }, 
+  small = {
+    x = "short code"
+    y = 3.14
+  })
+identical(x, "short code")
+identical(y, 3.14)
+scale_up()
+tmp <- downsize(
+  big = {
+    x = "long code"
+    y = 1:10
+  }, 
+  small = {
+    x = "short code"
+    y = 3.14
+  })
+identical(x, "long code")
+identical(y, 1:10)
+```
+
 
 # Troubleshooting
 

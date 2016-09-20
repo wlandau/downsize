@@ -9,16 +9,11 @@ Maintainer: ‘Landau William <will.landau@gmail.com>’
 New submission
 ```
 
-I also tested via `devtools::build_win()`. As before, there were no warnings or errors. There was only one note, and it was similar to the one from Mac OS.
+I also tested via `devtools::build_win()`. As before, there were no warnings or errors. There was only one note, and it was similar to the one from Mac OS except that it also showed
 
 ```
-* checking CRAN incoming feasibility ... NOTE
-Maintainer: 'Landau William <will.landau@gmail.com>'
-
-New submission
-
 Possibly mis-spelled words in DESCRIPTION:
-  Workflows (2:40)
+  Workflows (2:29)
   workflow (7:56)
 ```
 

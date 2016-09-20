@@ -14,10 +14,10 @@ That way, your entire workflow becomes a quick unit test with as little change a
 Ensure that [R](https://www.r-project.org/) is installed, as well as the dependencies in the [`DESCRIPTION`](https://github.com/wlandau/downsize/blob/master/DESCRIPTION). Then, you can install one of the [stable releases](https://github.com/wlandau/downsize/releases). Download the `.tar.gz` file, open an R session, and run the following.
 
 ```r
-install.packages("downsize_0.1.0.tar.gz", repos = NULL, type = "source")
+install.packages("downsize_<VERSION>.tar.gz", repos = NULL, type = "source")
 ```
 
-where `"downsize_0.1.0.tar.gz"` may be replaced by another version. To install the development version, open an R session and run 
+where `<VERSION>` is the version number. To install the development version, open an R session and run 
 
 ```
 > library(devtools)

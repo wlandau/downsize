@@ -27,10 +27,10 @@ big_data <- data.frame(x = rnorm(1e4), y = rnorm(1e4))
 But for the sake of time, you want to test and debug your code on a smaller dataset.
 
 ```{r}
-small_data <- head(big_data)
+small_data <- head(big_data, n = 6)
 ```
 
-In your code, define your dataset with a call to `downsize()`.
+In your code, select your dataset with a call to `downsize()`.
 
 ```{r}
 library(downsize)
@@ -38,7 +38,7 @@ my_data <- downsize(big_data, small_data)
 ```
 
 In this basic usage, the `downsize()` function provides a choice between the two arguments. It executes `my_data <- big_data` if `getOption("downsize")` is `FALSE` or `NULL` (default) and `my_data <- small_data` if `getOption("downsize")` is `TRUE`. 
-You can toggle the global option `downsize` with calls to `scale_up()` and `scale_down()`, and you can override it with `downsize(..., downsize = L)`, where `L` is `TRUE` or `FALSE`. You can also check the `downsize` option with the `scaling()` function, as in these examples.
+You can toggle the global option `downsize` with calls to `scale_up()` and `scale_down()`, and you can override the option with `downsize(..., downsize = L)`, where `L` is `TRUE` or `FALSE`. You can also check the `downsize` option with the `scaling()` function, as in these examples.
 
 ```{r}
 scale_down()
@@ -60,16 +60,31 @@ scale_down()
 downsize(1:10, length = 2)
 m <- matrix(1:36, ncol = 6)
 downsize(m, ncol = 2)
-downsize(m, ncol = 2, random = T)
 downsize(m, nrow = 2)
 downsize(m, dim = c(2, 2))
 downsize(data.frame(x = 1:10, y = 1:10), nrow = 5)
 dim(downsize(array(0, dim = c(10, 100, 2, 300, 12)), dim = rep(3, 5)))
 ```
 
+Set `random` to `TRUE` to take a random subset of your data.
+
+```{r}
+set.seed(6)
+downsize(m, ncol = 2, random = T)
+```
+
 ## Toggle code blocks
 
 You can interchange entire blocks of code based on the scaling of the workload.
+
+```{r}
+scale_down()
+downsize(big = {a = 1; a + 10}, small = {a = 1; a + 1})
+scale_up()
+downsize(big = {a = 1; a + 10}, small = {a = 1; a + 1})
+```
+
+Variables set in the code blocks are available after calls to `downsize()`.
 
 ```{r}
 scale_down()

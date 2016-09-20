@@ -5,28 +5,45 @@ test_that("Deprecated function ds() warns correctly", {
   expect_warning(x <- ds(1:10, 2))
 })
 
-test_that("Deprecated function ds() runs correctly", suppressWarnings({
+test_that("Deprecated function ds() selects code blocks correctly", suppressWarnings({
   for(i in 1:3){
     scale_down()
-    ds({
-      x = 1:10
-    }, {
-      x = "char"
-      y = 3.14
-    })
-    expect_equal(x, "char")
-    expect_equal(y, 3.14)
-
+    x = ds(big = {a = 1; a + 10}, small = {a = 1; a + 1})
+    expect_equal(x, 2)
     scale_up()
-    ds({
-      x = 1:10
-    }, {
-      x = "char"
-      y = 3.14
-    })
-    expect_equal(x, 1:10)
+    x = ds(big = {a = 1; a + 10}, small = {a = 1; a + 1})
+    expect_equal(x, 11)
   }
 
+  for(i in 1:3){
+    scale_down()
+    tmp <- ds(
+      big = {
+        x = "long code"
+        y = 1:10
+      }, 
+      small = {
+        x = "short code"
+        y = 3.14
+      })
+    expect_equal(x, "short code")
+    expect_equal(y, 3.14)
+    scale_up()
+    tmp <- ds(
+      big = {
+        x = "long code"
+        y = 1:10
+      }, 
+      small = {
+        x = "short code"
+        y = 3.14
+      })
+    expect_equal(x, "long code")
+    expect_equal(y, 1:10)
+  }
+}))
+
+test_that("Deprecated function ds() chooses objects and subsetting correctly", suppressWarnings({
   set.seed(0)
   data(mtcars)
   small = mtcars

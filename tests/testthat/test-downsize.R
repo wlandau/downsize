@@ -1,28 +1,45 @@
 # library(testthat); library(downsize)
 context("downsize")
 
-test_that("Function downsize() runs correctly", {
+test_that("Function downsize() selects code blocks correctly", {
   for(i in 1:3){
     scale_down()
-    downsize({
-      x = 1:10
-    }, {
-      x = "char"
-      y = 3.14
-    })
-    expect_equal(x, "char")
-    expect_equal(y, 3.14)
-
+    x = downsize(big = {a = 1; a + 10}, small = {a = 1; a + 1})
+    expect_equal(x, 2)
     scale_up()
-    downsize({
-      x = 1:10
-    }, {
-      x = "char"
-      y = 3.14
-    })
-    expect_equal(x, 1:10)
+    x = downsize(big = {a = 1; a + 10}, small = {a = 1; a + 1})
+    expect_equal(x, 11)
   }
 
+  for(i in 1:3){
+    scale_down()
+    tmp <- downsize(
+      big = {
+        x = "long code"
+        y = 1:10
+      }, 
+      small = {
+        x = "short code"
+        y = 3.14
+      })
+    expect_equal(x, "short code")
+    expect_equal(y, 3.14)
+    scale_up()
+    tmp <- downsize(
+      big = {
+        x = "long code"
+        y = 1:10
+      }, 
+      small = {
+        x = "short code"
+        y = 3.14
+      })
+    expect_equal(x, "long code")
+    expect_equal(y, 1:10)
+  }
+})
+
+test_that("Function downsize() chooses objects and subsetting correctly", {
   set.seed(0)
   data(mtcars)
   small = mtcars

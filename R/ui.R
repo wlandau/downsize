@@ -61,7 +61,5 @@ downsize = function(big, small = NULL, downsize = getOption("downsize"), random 
   length = NULL, dim = NULL, ncol = NULL, nrow = NULL){
   if(!should_downsize(downsize)) return(big)
   args = mget(names(formals()),sys.frame(sys.nframe()))
-  small = make_small(args)
-  check_small(big, small)
-  small
+  check_downsized(big, make_small(args))
 }

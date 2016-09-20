@@ -3,24 +3,26 @@
 #' @param args named list of arguments to \code{\link{downsize}}
 #' @description Utility function. Checks that arguments are valid.
 check_args = function(args){
+  if(!is.logical(args$random))
+    stop("the \"random\" argument to the downsize() function must be TRUE or FALSE")
   if(use_arg_small(args) & is.null(args$small))
     stop("not enough information to downsize.")
   if(!use_arg_small(args) & !is.null(args$small))
     stop("conflicts in arguments: \"small\" cannot be set at the same time as arguments that subset \"big\" (such as \"length\").")
+  args
 }
 
 #' @title Internal utility function.
 #' @seealso \code{\link{downsize}}
 #' @param big argument to \code{\link{downsize}}
 #' @param small argument to \code{\link{downsize}}
-#' @description Utility function. 
-#' Called if "downsize" is TRUE. Compare "small" to "big" and see if
-#' the result makes sense.
-check_small = function(big, small){
+#' @description Utility function. Checks if downsizing really happened.
+check_downsized = function(big, small){
   if(identical(big, small))
-    warning("downsizing \"big\" to \"small\", but \"big\" and \"small\" are identical.")
+    warning("tried to downsize \"big\" to \"small\", but \"big\" and \"small\" are identical.")
   if(object.size(big) < object.size(small))
-    warning("downsizing \"big\" to \"small\", but \"big\" is a smaller object than \"small\".")  
+    warning("tried to downsize \"big\" to \"small\", but \"big\" takes up less memory than \"small\".")
+  small 
 }
 
 #' @title Internal utility function.
@@ -41,7 +43,6 @@ downsize_error = function(arg_name){
 make_small = function(args){
   check_args(args)
   if(use_arg_small(args)) return(args$small)
-  stopifnot(is.logical(args$random))
   subset_length(args$big, args$length, args$random) %>%
     subset_dim(args$dim, args$random) %>%
     subset_nrow(args$nrow, args$random) %>%

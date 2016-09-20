@@ -27,7 +27,7 @@ my_data <- downsize(big_data) # downsize(big = big_data)
 ```
 
 Above, `my_data` becomes `big_data` if `getOption("downsize")` is `FALSE` or `NULL` (default) and `head(big_data)` if `getOption("downsize")` is `TRUE`. 
-You can toggle the global option `downsize` with calls to `scale_up()` and `scale_down()`, and you can override the option with `downsize(..., downsize = L)`, where `L` is `TRUE` or `FALSE`.
+You can toggle the global option `downsize` with calls to `scale_up()` and `scale_down()`, and you can override the option with `downsize(..., downsize = L)`, where `L` is `TRUE` or `FALSE`. Check if you are in test mode or production mode with the `scaling()` function.
 
 ```{r}
 scale_down()

@@ -25,3 +25,5 @@ Possibly mis-spelled words in DESCRIPTION:
 I believe that "Workflows" and "workflow" are spelled correctly.
 
 Build checks successfully passed on [AppVeyor](https://ci.appveyor.com/project/wlandau/downsize) and [Travis CI](https://travis-ci.org/wlandau/downsize). 100% of the code is [unit-tested](https://codecov.io/github/wlandau/downsize?branch=master) via `testthat`. The latest build status is displayed with the badges at the top of the [README](https://github.com/wlandau/downsize/blob/master/README.md).
+
+Thank you for your consideration.

@@ -14,7 +14,7 @@ and "scaled up" if \code{getOption("downsize")} is \code{FALSE} or \code{NULL}.
 Check whether the current workflow is scaled up or down.
 }
 \details{
-See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
+See https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html
 for a package tutorial.
 }
 \seealso{

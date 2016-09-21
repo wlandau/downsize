@@ -42,7 +42,7 @@ Replace \code{big} with a downsized object
 if the \code{downsize} argument (or global \code{downsize} option) is \code{TRUE}.
 }
 \details{
-See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
+See https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html
 for a package tutorial.
 If the \code{downsize} argument is \code{TRUE}, a downsized replacement 
 for \code{big} will be returned. In this case, arguments \code{dim}, \code{length},

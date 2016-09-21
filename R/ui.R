@@ -1,7 +1,7 @@
 #' @title Function \code{scale_down}
 #' @description Calls \code{options(downsize = TRUE)} to scale down a workflow.
 #' This affects the \code{\link{downsize}} function.
-#' @details See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
+#' @details See https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html
 #' for a package tutorial.
 #' @seealso \code{\link{downsize}}, \code{\link{downsize}}, \code{\link{scale_up}},
 #' \code{\link{scaling}}
@@ -13,7 +13,7 @@ scale_down = function(){
 #' @title Function \code{scale_up}
 #' @description Call \code{options(downsize = FALSE)} to scale up a workflow.
 #' This affects the \code{\link{downsize}} function.
-#' @details See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
+#' @details See https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html
 #' for a package tutorial.
 #' @seealso \code{\link{downsize}}, \code{\link{scale_down}}, \code{\link{scaling}}
 #' @export
@@ -23,7 +23,7 @@ scale_up = function(){
 
 #' @title Function \code{scaling}
 #' @description Check whether the current workflow is scaled up or down.
-#' @details See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
+#' @details See https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html
 #' for a package tutorial.
 #' @seealso \code{\link{downsize}}, \code{\link{scale_down}}, \code{\link{scale_up}}
 #' @export
@@ -38,7 +38,7 @@ scaling = function(){
 #' @title Function \code{downsize}. Main function of the \code{downsize} package.
 #' @description Replace \code{big} with a downsized object 
 #' if the \code{downsize} argument (or global \code{downsize} option) is \code{TRUE}.
-#' @details See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
+#' @details See https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html
 #' for a package tutorial.
 #' If the \code{downsize} argument is \code{TRUE}, a downsized replacement 
 #' for \code{big} will be returned. In this case, arguments \code{dim}, \code{length},

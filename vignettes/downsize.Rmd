@@ -53,7 +53,7 @@ nrow(my_data) # responds to scale_down() and scale_up()
 # ...more code, time-consuming if my_data is large...
 ```
 
-Thus, tedium and human error are avoided, and the test is a close approximation to the task at hand.
+Thus, tedium and human error are avoided, and the test is a close approximation to the original task at hand.
 
 # Provide your own test data
 

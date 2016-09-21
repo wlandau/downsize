@@ -11,38 +11,57 @@ vignette: >
 
 With the `downsize` package, you can toggle the test and production versions of your workflow with the flip of a `TRUE/FALSE` global option. This is helpful when your workflow takes a long time to run, you want to test it quickly, and [unit testing](http://kbroman.org/pkg_primer/pages/tests.html) is too reductionist to cover everything.
 
-# Toggle objects
+# Basic downsizing
 
 Say you want to analyze a large dataset.
 
-```{r}
+```{r, eval = F}
 big_data <- data.frame(x = rnorm(1e4), y = rnorm(1e4))
 ```
 
 But for the sake of time, you want to test and debug your code on a smaller dataset. In your code, select your dataset with a call to `downsize()`.
 
+```{r, eval = F}
+my_data <- downsize(big_data) # downsize(big = big_data)
+```
+
+Above, `my_data` becomes `big_data` if `getOption("downsize")` is `FALSE` or `NULL` (default). If `getOption("downsize")` is `TRUE`, `big_data` becomes `head(big_data)`. You can toggle the global option `downsize` with calls to `scale_up()` and `scale_down()`, and you can override the option with `downsize(..., downsize = L)`, where `L` is `TRUE` or `FALSE`. Check if the workflow is scaled up or down with the `scaling()` function.
+
+# Example with test and production modes
+
+Here is an example script in test mode.
+
+```{r, eval = F}
+library(downsize)
+scale_down() # scale the workflow up or down.
+scaling() # shows if the workflow is scaled up or down
+big_data <- data.frame(x = rnorm(1e4), y = rnorm(1e4)) # always large
+my_data <- downsize(big_data) # either large or small
+nrow(my_data) # responds to scale_down() and scale_up()
+# ...more code, time-consuming if my_data is large...
+```
+
+To scale up the workflow to production mode, replace `scale_down()` with `scale_up()` and **leave everything else exactly the same**.
+
+```{r, eval = F}
+library(downsize)
+scale_up() # scale the workflow up or down.
+scaling() # shows if the workflow is scaled up or down
+big_data <- data.frame(x = rnorm(1e4), y = rnorm(1e4)) # always large
+my_data <- downsize(big_data) # either large or small
+nrow(my_data) # responds to scale_down() and scale_up()
+# ...more code, time-consuming if my_data is large...
+```
+
+Thus, tedium and human error are avoided.
+
+# Provide your own test data
+
+You can provide a replacement for `big_data` using argument `small` in `downsize()`.
+
 ```{r}
 library(downsize)
-my_data <- downsize(big_data) # downsize(big = big_data)
-```
-
-Above, `my_data` becomes `big_data` if `getOption("downsize")` is `FALSE` or `NULL` (default) and `head(big_data)` if `getOption("downsize")` is `TRUE`. 
-You can toggle the global option `downsize` with calls to `scale_up()` and `scale_down()`, and you can override the option with `downsize(..., downsize = L)`, where `L` is `TRUE` or `FALSE`. Check if you are in test mode or production mode with the `scaling()` function.
-
-```{r}
-scale_down()
-scaling() # getOption("downsize") is TRUE
-my_data <- downsize(big_data) # downsize(big = big_data)
-identical(my_data, head(big_data))
-scale_up()
-scaling() # getOption("downsize") is FALSE
-my_data <- downsize(big_data) # downsize(big = big_data)
-identical(my_data, big_data)
-```
-
-Equivalently, you can provide a replacement for `big_data` using argument `small` in `downsize()`.
-
-```{r}
+big_data <- data.frame(x = rnorm(1e4), y = rnorm(1e4))
 small_data <- data.frame(x = runif(16), y = runif(16))
 scale_down()
 scaling() # getOption("downsize") is TRUE
@@ -50,9 +69,9 @@ my_data <- downsize(big_data, small_data) # downsize(big = big_data, small = sma
 identical(my_data, small_data)
 ```
 
-If you set `small` yourself, be sure that subsequent code can accept both `small` and `big`. For example, if `small` is a data frame and `big` is a matrix, your code may work fine in test mode and break in production mode. In addition, `downsize()` will warn you if `small` is identical to or bigger in memory than `big` (disable with `downsize(..., warn = FALSE`)). See the next section for a safer alternative.
+If you set `small` yourself, be sure that subsequent code can accept both `small` and `big`. For example, if `small` is a data frame and `big` is a matrix, your code may work fine in test mode and break in production mode. In addition, `downsize()` will warn you if `small` is identical to or bigger in memory than `big` (disable with `downsize(..., warn = FALSE`)). To be safer, use the subsetting capabilities of the `downsize()` function.
 
-# Toggle subsetting
+# Subsetting
 
 The command `my_data <- downsize(big = big_data)` is equivalent to `my_data <- downsize(big = big_data, nrow = 6)`. There are multiple ways to subset argument `big` in `downsize()` when it is time to scale down. As in the following examples, be sure that `small` is set to `NULL` (default).
 
@@ -81,7 +100,7 @@ set.seed(6)
 downsize(m, ncol = 2, random = T)
 ```
 
-# Toggle code blocks
+# Interchange code blocks
 
 You can interchange entire blocks of code based on the scaling of the workload.
 

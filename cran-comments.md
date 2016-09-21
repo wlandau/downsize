@@ -6,17 +6,17 @@ When I tested via `R CMD CHECK --as-cran` in R 3.3.1 on Mac OS 10.11.6, and ther
 * checking CRAN incoming feasibility ... NOTE
 Maintainer: ‘Landau William <will.landau@gmail.com>’
 
-New submission
+New maintainer:
+  William Landau <will.landau@gmail.com>
+Old maintainer(s):
+  Landau William <will.landau@gmail.com>
 ```
 
-I also tested via `devtools::build_win()`. As before, there were no warnings or errors. There was only one note, and it was similar to the one from Mac OS.
+I gave my first and last name in the incorrect order during last submission, and I would like to correct this. The first name should be William, and the last name should be Landau.
+
+I also tested via `devtools::build_win()`. As before, there were no warnings or errors. There was only one note, which was similar to before except for the following.
 
 ```
-* checking CRAN incoming feasibility ... NOTE
-Maintainer: 'Landau William <will.landau@gmail.com>'
-
-New submission
-
 Possibly mis-spelled words in DESCRIPTION:
   Workflows (2:35)
   workflow (7:66)

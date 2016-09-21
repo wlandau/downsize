@@ -13,8 +13,11 @@ and "scaled up" if \code{getOption("downsize")} is \code{FALSE} or \code{NULL}.
 \description{
 Check whether the current workflow is scaled up or down.
 }
+\details{
+See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
+for a tutorial.
+}
 \seealso{
-\code{\link{downsize}}, \code{\link{scale_down}}, 
-\code{\link{scale_up}}
+\code{\link{downsize}}, \code{\link{scale_down}}, \code{\link{scale_up}}
 }
 

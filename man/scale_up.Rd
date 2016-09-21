@@ -10,8 +10,11 @@ scale_up()
 Call \code{options(downsize = FALSE)} to scale up a workflow.
 This affects the \code{\link{downsize}} function.
 }
+\details{
+See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
+for a tutorial.
+}
 \seealso{
-\code{\link{downsize}}, \code{\link{scale_down}}, 
-\code{\link{scaling}}
+\code{\link{downsize}}, \code{\link{scale_down}}, \code{\link{scaling}}
 }
 

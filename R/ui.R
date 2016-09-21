@@ -1,6 +1,8 @@
 #' @title Function \code{scale_down}
 #' @description Calls \code{options(downsize = TRUE)} to scale down a workflow.
 #' This affects the \code{\link{downsize}} function.
+#' @details See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
+#' for a tutorial.
 #' @seealso \code{\link{downsize}}, \code{\link{downsize}}, \code{\link{scale_up}},
 #' \code{\link{scaling}}
 #' @export
@@ -11,8 +13,9 @@ scale_down = function(){
 #' @title Function \code{scale_up}
 #' @description Call \code{options(downsize = FALSE)} to scale up a workflow.
 #' This affects the \code{\link{downsize}} function.
-#' @seealso \code{\link{downsize}}, \code{\link{scale_down}}, 
-#' \code{\link{scaling}}
+#' @details See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
+#' for a tutorial.
+#' @seealso \code{\link{downsize}}, \code{\link{scale_down}}, \code{\link{scaling}}
 #' @export
 scale_up = function(){
   options(downsize = FALSE)	
@@ -20,8 +23,9 @@ scale_up = function(){
 
 #' @title Function \code{scaling}
 #' @description Check whether the current workflow is scaled up or down.
-#' @seealso \code{\link{downsize}}, \code{\link{scale_down}}, 
-#' \code{\link{scale_up}}
+#' @details See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
+#' for a tutorial.
+#' @seealso \code{\link{downsize}}, \code{\link{scale_down}}, \code{\link{scale_up}}
 #' @export
 #' @return \code{"scaled down"} if \code{getOption("downsize")} is \code{TRUE} 
 #' and "scaled up" if \code{getOption("downsize")} is \code{FALSE} or \code{NULL}.
@@ -34,7 +38,9 @@ scaling = function(){
 #' @title Function \code{downsize}. Main function of the \code{downsize} package.
 #' @description Replace \code{big} with a downsized object 
 #' if the \code{downsize} argument (or global \code{downsize} option) is \code{TRUE}.
-#' @details If the \code{downsize} argument is \code{TRUE}, a downsized replacement 
+#' @details See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
+#' for a tutorial.
+#' If the \code{downsize} argument is \code{TRUE}, a downsized replacement 
 #' for \code{big} will be returned. In this case, arguments \code{dim}, \code{length},
 #'  etc. take precedence over \code{small}. If the \code{downsize} argument is not set 
 #' manually, the global option \code{downsize} will be used. The \code{downsize} option 

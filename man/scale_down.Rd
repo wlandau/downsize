@@ -10,6 +10,10 @@ scale_down()
 Calls \code{options(downsize = TRUE)} to scale down a workflow.
 This affects the \code{\link{downsize}} function.
 }
+\details{
+See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
+for a tutorial.
+}
 \seealso{
 \code{\link{downsize}}, \code{\link{downsize}}, \code{\link{scale_up}},
 \code{\link{scaling}}

@@ -33,7 +33,7 @@ Here is an example script in test mode.
 
 ```{r, eval = F}
 library(downsize)
-scale_down() # scales the workflow up or down.
+scale_down() # scales the workflow appropriately
 scaling() # shows if the workflow is scaled up or down
 big_data <- data.frame(x = rnorm(1e4), y = rnorm(1e4)) # always large
 my_data <- downsize(big_data) # either large or small
@@ -45,7 +45,7 @@ To scale up the workflow to production mode, replace `scale_down()` with `scale_
 
 ```{r, eval = F}
 library(downsize)
-scale_up() # scales the workflow up or down.
+scale_up() # scales the workflow appropriately
 scaling() # shows if the workflow is scaled up or down
 big_data <- data.frame(x = rnorm(1e4), y = rnorm(1e4)) # always large
 my_data <- downsize(big_data) # either large or small

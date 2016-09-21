@@ -43,7 +43,7 @@ if the \code{downsize} argument (or global \code{downsize} option) is \code{TRUE
 }
 \details{
 See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
-for a tutorial.
+for a package tutorial.
 If the \code{downsize} argument is \code{TRUE}, a downsized replacement 
 for \code{big} will be returned. In this case, arguments \code{dim}, \code{length},
  etc. take precedence over \code{small}. If the \code{downsize} argument is not set 

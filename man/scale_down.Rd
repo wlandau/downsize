@@ -12,7 +12,7 @@ This affects the \code{\link{downsize}} function.
 }
 \details{
 See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
-for a tutorial.
+for a package tutorial.
 }
 \seealso{
 \code{\link{downsize}}, \code{\link{downsize}}, \code{\link{scale_up}},

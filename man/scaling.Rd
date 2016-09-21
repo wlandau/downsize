@@ -15,7 +15,7 @@ Check whether the current workflow is scaled up or down.
 }
 \details{
 See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
-for a tutorial.
+for a package tutorial.
 }
 \seealso{
 \code{\link{downsize}}, \code{\link{scale_down}}, \code{\link{scale_up}}

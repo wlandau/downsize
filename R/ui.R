@@ -2,7 +2,7 @@
 #' @description Calls \code{options(downsize = TRUE)} to scale down a workflow.
 #' This affects the \code{\link{downsize}} function.
 #' @details See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
-#' for a tutorial.
+#' for a package tutorial.
 #' @seealso \code{\link{downsize}}, \code{\link{downsize}}, \code{\link{scale_up}},
 #' \code{\link{scaling}}
 #' @export
@@ -14,7 +14,7 @@ scale_down = function(){
 #' @description Call \code{options(downsize = FALSE)} to scale up a workflow.
 #' This affects the \code{\link{downsize}} function.
 #' @details See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
-#' for a tutorial.
+#' for a package tutorial.
 #' @seealso \code{\link{downsize}}, \code{\link{scale_down}}, \code{\link{scaling}}
 #' @export
 scale_up = function(){
@@ -24,7 +24,7 @@ scale_up = function(){
 #' @title Function \code{scaling}
 #' @description Check whether the current workflow is scaled up or down.
 #' @details See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
-#' for a tutorial.
+#' for a package tutorial.
 #' @seealso \code{\link{downsize}}, \code{\link{scale_down}}, \code{\link{scale_up}}
 #' @export
 #' @return \code{"scaled down"} if \code{getOption("downsize")} is \code{TRUE} 
@@ -39,7 +39,7 @@ scaling = function(){
 #' @description Replace \code{big} with a downsized object 
 #' if the \code{downsize} argument (or global \code{downsize} option) is \code{TRUE}.
 #' @details See https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd
-#' for a tutorial.
+#' for a package tutorial.
 #' If the \code{downsize} argument is \code{TRUE}, a downsized replacement 
 #' for \code{big} will be returned. In this case, arguments \code{dim}, \code{length},
 #'  etc. take precedence over \code{small}. If the \code{downsize} argument is not set 

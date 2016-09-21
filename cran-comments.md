@@ -5,6 +5,8 @@
 
 # R CMD check results
 
+No errors, no warnings, one note.
+
 ```
 * checking CRAN incoming feasibility ... NOTE
 Maintainer: ‘Landau William <will.landau@gmail.com>’

@@ -40,6 +40,7 @@ A downsized object if \code{downsize} is \code{TRUE} and \code{big} otherwise.
 \description{
 Replace \code{big} with a downsized object 
 if the \code{downsize} argument (or global \code{downsize} option) is \code{TRUE}.
+Read https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html for more.
 }
 \details{
 See https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html

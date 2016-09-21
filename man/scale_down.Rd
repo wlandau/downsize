@@ -9,6 +9,7 @@ scale_down()
 \description{
 Calls \code{options(downsize = TRUE)} to scale down a workflow.
 This affects the \code{\link{downsize}} function.
+Read https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html for more.
 }
 \details{
 See https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html

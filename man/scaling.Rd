@@ -12,6 +12,7 @@ and "scaled up" if \code{getOption("downsize")} is \code{FALSE} or \code{NULL}.
 }
 \description{
 Check whether the current workflow is scaled up or down.
+Read https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html for more.
 }
 \details{
 See https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html

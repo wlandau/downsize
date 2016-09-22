@@ -9,13 +9,13 @@ scale_up()
 \description{
 Call \code{options(downsize = FALSE)} to scale up a workflow.
 This affects the \code{\link{downsize}} function.
-Use the \code{\link{downsize_help}} function to get more help.
+Use the \code{\link{help_downsize}} function to get more help.
 }
 \details{
-Use the \code{\link{downsize_help}} function to get more help.
+Use the \code{\link{help_downsize}} function to get more help.
 }
 \seealso{
-\code{\link{downsize_help}}, \code{\link{downsize}}, 
+\code{\link{help_downsize}}, \code{\link{downsize}}, 
 \code{\link{scale_down}}, \code{\link{scaling}}
 }
 

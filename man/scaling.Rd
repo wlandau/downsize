@@ -12,13 +12,13 @@ and "scaled up" if \code{getOption("downsize")} is \code{FALSE} or \code{NULL}.
 }
 \description{
 Check whether the current workflow is scaled up or down.
-Use the \code{\link{downsize_help}} function to get more help.
+Use the \code{\link{help_downsize}} function to get more help.
 }
 \details{
-Use the \code{\link{downsize_help}} function to get more help.
+Use the \code{\link{help_downsize}} function to get more help.
 }
 \seealso{
-\code{\link{downsize_help}}, \code{\link{downsize}}, 
+\code{\link{help_downsize}}, \code{\link{downsize}}, 
 \code{\link{scale_down}}, \code{\link{scale_up}}
 }
 

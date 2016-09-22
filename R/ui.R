@@ -1,14 +1,14 @@
 #' @title Function \code{downsize}. Main function of the \code{downsize} package.
 #' @description Replace \code{big} with a downsized object 
 #' if the \code{downsize} argument (or global \code{downsize} option) is \code{TRUE}.
-#' Use the \code{\link{downsize_help}} function to get more help.
-#' @details Use the \code{\link{downsize_help}} function to get more help.
+#' Use the \code{\link{help_downsize}} function to get more help.
+#' @details Use the \code{\link{help_downsize}} function to get more help.
 #' If the \code{downsize} argument is \code{TRUE}, a downsized replacement 
 #' for \code{big} will be returned. In this case, arguments \code{dim}, \code{length},
 #'  etc. take precedence over \code{small}. If the \code{downsize} argument is not set 
 #' manually, the global option \code{downsize} will be used. The \code{downsize} option 
 #' can be toggled with functions \code{\link{scale_down}} and \code{\link{scale_up}}.
-#' @seealso \code{\link{downsize_help}}, \code{\link{scale_down}}, 
+#' @seealso \code{\link{help_downsize}}, \code{\link{scale_down}}, 
 #' \code{\link{scale_up}}, \code{\link{scaling}}
 #' @export
 #' @return A downsized object if \code{downsize} is \code{TRUE} and \code{big} otherwise.
@@ -38,12 +38,12 @@ downsize = function(big, small = NULL, downsize = getOption("downsize"), warn = 
   small
 }
 
-#' @title Function \code{downsize_help}
+#' @title Function \code{help_downsize}
 #' @description Prints links for tutorials, troubleshooting, bug reports, etc.
 #' @seealso \code{\link{downsize}}, \code{\link{scale_down}}, 
 #' \code{\link{scale_up}}, \code{\link{scaling}}
 #' @export
-downsize_help = function(){
+help_downsize = function(){
   cat(
     "The package vignette has a full tutorial, and it is available at the following webpages.",
     "    https://CRAN.R-project.org/package=downsize/vignettes/downsize.html",
@@ -60,9 +60,9 @@ downsize_help = function(){
 #' @title Function \code{scale_down}
 #' @description Calls \code{options(downsize = TRUE)} to scale down a workflow.
 #' This affects the \code{\link{downsize}} function.
-#' Use the \code{\link{downsize_help}} function to get more help.
-#' @details Use the \code{\link{downsize_help}} function to get more help.
-#' @seealso \code{\link{downsize_help}}, \code{\link{downsize}}, \code{\link{scale_up}}, \code{\link{scaling}},
+#' Use the \code{\link{help_downsize}} function to get more help.
+#' @details Use the \code{\link{help_downsize}} function to get more help.
+#' @seealso \code{\link{help_downsize}}, \code{\link{downsize}}, \code{\link{scale_up}}, \code{\link{scaling}},
 #' \code{\link{scaling}}
 #' @export
 scale_down = function(){
@@ -72,9 +72,9 @@ scale_down = function(){
 #' @title Function \code{scale_up}
 #' @description Call \code{options(downsize = FALSE)} to scale up a workflow.
 #' This affects the \code{\link{downsize}} function.
-#' Use the \code{\link{downsize_help}} function to get more help.
-#' @details Use the \code{\link{downsize_help}} function to get more help.
-#' @seealso \code{\link{downsize_help}}, \code{\link{downsize}}, 
+#' Use the \code{\link{help_downsize}} function to get more help.
+#' @details Use the \code{\link{help_downsize}} function to get more help.
+#' @seealso \code{\link{help_downsize}}, \code{\link{downsize}}, 
 #' \code{\link{scale_down}}, \code{\link{scaling}}
 #' @export
 scale_up = function(){
@@ -83,9 +83,9 @@ scale_up = function(){
 
 #' @title Function \code{scaling}
 #' @description Check whether the current workflow is scaled up or down.
-#' Use the \code{\link{downsize_help}} function to get more help.
-#' @details Use the \code{\link{downsize_help}} function to get more help.
-#' @seealso \code{\link{downsize_help}}, \code{\link{downsize}}, 
+#' Use the \code{\link{help_downsize}} function to get more help.
+#' @details Use the \code{\link{help_downsize}} function to get more help.
+#' @seealso \code{\link{help_downsize}}, \code{\link{downsize}}, 
 #' \code{\link{scale_down}}, \code{\link{scale_up}}
 #' @export
 #' @return \code{"scaled down"} if \code{getOption("downsize")} is \code{TRUE} 

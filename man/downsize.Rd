@@ -40,10 +40,10 @@ A downsized object if \code{downsize} is \code{TRUE} and \code{big} otherwise.
 \description{
 Replace \code{big} with a downsized object 
 if the \code{downsize} argument (or global \code{downsize} option) is \code{TRUE}.
-Use the \code{\link{downsize_help}} function to get more help.
+Use the \code{\link{help_downsize}} function to get more help.
 }
 \details{
-Use the \code{\link{downsize_help}} function to get more help.
+Use the \code{\link{help_downsize}} function to get more help.
 If the \code{downsize} argument is \code{TRUE}, a downsized replacement 
 for \code{big} will be returned. In this case, arguments \code{dim}, \code{length},
  etc. take precedence over \code{small}. If the \code{downsize} argument is not set 
@@ -51,7 +51,7 @@ manually, the global option \code{downsize} will be used. The \code{downsize} op
 can be toggled with functions \code{\link{scale_down}} and \code{\link{scale_up}}.
 }
 \seealso{
-\code{\link{downsize_help}}, \code{\link{scale_down}}, 
+\code{\link{help_downsize}}, \code{\link{scale_down}}, 
 \code{\link{scale_up}}, \code{\link{scaling}}
 }
 

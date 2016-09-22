@@ -39,8 +39,10 @@ A downsized object if \code{downsize} is \code{TRUE} and \code{big} otherwise.
 }
 \description{
 Deprecated. Use function \code{\link{downsize}} instead.
+See \code{\link{downsize_help}} for help.
 }
 \seealso{
-\code{\link{downsize}}
+\code{\link{downsize_help}}, \code{\link{downsize}}, \code{\link{scale_down}}, 
+\code{\link{scale_up}}, \code{\link{scaling}}
 }
 

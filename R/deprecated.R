@@ -1,6 +1,8 @@
 #' @title Function \code{ds}. Deprecated.
 #' @description Deprecated. Use function \code{\link{downsize}} instead.
-#' @seealso \code{\link{downsize}}
+#' See \code{\link{downsize_help}} for help.
+#' @seealso \code{\link{downsize_help}}, \code{\link{downsize}}, \code{\link{scale_down}}, 
+#' \code{\link{scale_up}}, \code{\link{scaling}}
 #' @export
 #' @return A downsized object if \code{downsize} is \code{TRUE} and \code{big} otherwise.
 #' @param big Object to return if \code{downsize} is \code{FALSE} or \code{NULL}.

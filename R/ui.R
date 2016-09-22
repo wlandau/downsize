@@ -1,55 +1,15 @@
-#' @title Function \code{scale_down}
-#' @description Calls \code{options(downsize = TRUE)} to scale down a workflow.
-#' This affects the \code{\link{downsize}} function.
-#' Read https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html for more.
-#' @details See https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html
-#' for a package tutorial.
-#' @seealso \code{\link{downsize}}, \code{\link{downsize}}, \code{\link{scale_up}},
-#' \code{\link{scaling}}
-#' @export
-scale_down = function(){
-  options(downsize = TRUE)	
-}
-
-#' @title Function \code{scale_up}
-#' @description Call \code{options(downsize = FALSE)} to scale up a workflow.
-#' This affects the \code{\link{downsize}} function.
-#' Read https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html for more.
-#' @details See https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html
-#' for a package tutorial.
-#' @seealso \code{\link{downsize}}, \code{\link{scale_down}}, \code{\link{scaling}}
-#' @export
-scale_up = function(){
-  options(downsize = FALSE)	
-}
-
-#' @title Function \code{scaling}
-#' @description Check whether the current workflow is scaled up or down.
-#' Read https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html for more.
-#' @details See https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html
-#' for a package tutorial.
-#' @seealso \code{\link{downsize}}, \code{\link{scale_down}}, \code{\link{scale_up}}
-#' @export
-#' @return \code{"scaled down"} if \code{getOption("downsize")} is \code{TRUE} 
-#' and "scaled up" if \code{getOption("downsize")} is \code{FALSE} or \code{NULL}.
-scaling = function(){
-  downsize = getOption("downsize")
-  if(is.null(downsize)) downsize = FALSE	
-  ifelse(downsize, "scaled down", "scaled up")
-}
-
 #' @title Function \code{downsize}. Main function of the \code{downsize} package.
 #' @description Replace \code{big} with a downsized object 
 #' if the \code{downsize} argument (or global \code{downsize} option) is \code{TRUE}.
-#' Read https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html for more.
-#' @details See https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html
-#' for a package tutorial.
+#' Use the \code{\link{downsize_help}} function to get more help.
+#' @details Use the \code{\link{downsize_help}} function to get more help.
 #' If the \code{downsize} argument is \code{TRUE}, a downsized replacement 
 #' for \code{big} will be returned. In this case, arguments \code{dim}, \code{length},
 #'  etc. take precedence over \code{small}. If the \code{downsize} argument is not set 
 #' manually, the global option \code{downsize} will be used. The \code{downsize} option 
 #' can be toggled with functions \code{\link{scale_down}} and \code{\link{scale_up}}.
-#' @seealso \code{\link{scale_down}}, \code{\link{scale_up}}, \code{\link{scaling}}
+#' @seealso \code{\link{downsize_help}}, \code{\link{scale_down}}, 
+#' \code{\link{scale_up}}, \code{\link{scaling}}
 #' @export
 #' @return A downsized object if \code{downsize} is \code{TRUE} and \code{big} otherwise.
 #' @param big Object to return if \code{downsize} is \code{FALSE} or \code{NULL}.
@@ -76,4 +36,62 @@ downsize = function(big, small = NULL, downsize = getOption("downsize"), warn = 
   small = make_small(args)
   if(warn) check_downsized(big, small)
   small
+}
+
+#' @title Function \code{downsize_help}
+#' @description Prints links for tutorials, troubleshooting, bug reports, etc.
+#' @seealso \code{\link{downsize}}, \code{\link{scale_down}}, 
+#' \code{\link{scale_up}}, \code{\link{scaling}}
+#' @export
+downsize_help = function(){
+  cat(
+    "The package vignette has a full tutorial, and it is available at the following webpages.",
+    "    https://CRAN.R-project.org/package=downsize/vignettes/downsize.html",
+    "    https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html",
+    "The vignette of the development version has a full tutorial at the webpage below.",
+    "    https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd",
+    "For troubleshooting, navigate to the link below.",
+    "    https://github.com/wlandau/downsize/blob/master/TROUBLESHOOTING.md",
+    "To submit bug reports, usage questions, feature requests, etc., navigate to the link below.",
+    "    https://github.com/wlandau/downsize/issues",
+  sep = "\n")
+}
+
+#' @title Function \code{scale_down}
+#' @description Calls \code{options(downsize = TRUE)} to scale down a workflow.
+#' This affects the \code{\link{downsize}} function.
+#' Use the \code{\link{downsize_help}} function to get more help.
+#' @details Use the \code{\link{downsize_help}} function to get more help.
+#' @seealso \code{\link{downsize_help}}, \code{\link{downsize}}, \code{\link{scale_up}}, \code{\link{scaling}},
+#' \code{\link{scaling}}
+#' @export
+scale_down = function(){
+  options(downsize = TRUE)	
+}
+
+#' @title Function \code{scale_up}
+#' @description Call \code{options(downsize = FALSE)} to scale up a workflow.
+#' This affects the \code{\link{downsize}} function.
+#' Use the \code{\link{downsize_help}} function to get more help.
+#' @details Use the \code{\link{downsize_help}} function to get more help.
+#' @seealso \code{\link{downsize_help}}, \code{\link{downsize}}, 
+#' \code{\link{scale_down}}, \code{\link{scaling}}
+#' @export
+scale_up = function(){
+  options(downsize = FALSE)	
+}
+
+#' @title Function \code{scaling}
+#' @description Check whether the current workflow is scaled up or down.
+#' Use the \code{\link{downsize_help}} function to get more help.
+#' @details Use the \code{\link{downsize_help}} function to get more help.
+#' @seealso \code{\link{downsize_help}}, \code{\link{downsize}}, 
+#' \code{\link{scale_down}}, \code{\link{scale_up}}
+#' @export
+#' @return \code{"scaled down"} if \code{getOption("downsize")} is \code{TRUE} 
+#' and "scaled up" if \code{getOption("downsize")} is \code{FALSE} or \code{NULL}.
+scaling = function(){
+  downsize = getOption("downsize")
+  if(is.null(downsize)) downsize = FALSE	
+  ifelse(downsize, "scaled down", "scaled up")
 }

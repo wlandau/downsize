@@ -140,6 +140,6 @@ x == "long code" & y == 1000
 
 The `downsize()` function checks the values of `big` and `small`, so any  code blocks passed as arguments must return non-`NULL` values. To avoid warnings, the return value of `small` should be different from and no larger in memory than that of `big` (or just call `downsize(..., warn = FALSE)`). If subsetter arguments such as `dim` and `length` are used, they apply to the return value of `big` rather than any variables defined in the code block.
 
-# Troubleshooting
+# Help and troubleshooting
 
-Please refer to [TROUBLESHOOTING.md](https://github.com/wlandau/downsize/blob/master/TROUBLESHOOTING.md) on the [GitHub page](https://github.com/wlandau/downsize) for instructions.
+Use the `help_downsize()` function to obtain a collection of helpful links. For troubleshooting, please refer to [TROUBLESHOOTING.md](https://github.com/wlandau/downsize/blob/master/TROUBLESHOOTING.md) on the [GitHub page](https://github.com/wlandau/downsize) for instructions.

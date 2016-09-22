@@ -26,6 +26,7 @@ To install the development version, open an R session and run
 
 Please refer to the [online package vignette](https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd) for the tutorial.
 
-# Troubleshooting
 
-Please refer to [TROUBLESHOOTING.md](https://github.com/wlandau/downsize/blob/master/TROUBLESHOOTING.md) on the [GitHub page](https://github.com/wlandau/downsize) for instructions.
+# Help and troubleshooting
+
+Use the `help_downsize()` function to obtain a collection of helpful links. For troubleshooting, please refer to [TROUBLESHOOTING.md](https://github.com/wlandau/downsize/blob/master/TROUBLESHOOTING.md) on the [GitHub page](https://github.com/wlandau/downsize) for instructions.

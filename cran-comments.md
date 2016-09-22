@@ -1,4 +1,4 @@
-# Version (v0.1.0)
+# Changes in version 0.2.0
 
 - Correct the author and maintainer name. Should be "William Landau", not "Landau William".
 - Add `help_downsize()` to print out helpful links to tutorials, instructions for troubleshooting, etc.

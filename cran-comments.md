@@ -1,7 +1,8 @@
-# Patch (v0.0.1)
+# Version (v0.1.0)
 
 - Correct the author and maintainer name. Should be "William Landau", not "Landau William".
-- Point to online vignette in help files.
+- Add `help_downsize()` to print out helpful links to tutorials, instructions for troubleshooting, etc.
+
 
 # R CMD check results
 

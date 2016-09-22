@@ -1,5 +1,13 @@
 # 2016-09-21
 
+I am already planning v0.2.0, and I implemented the most important changes in release v0.1.1 (GitHub only). The main updates are these.
+
+- The author and maintainer fields in the DESCRIPTION are corrected.
+- There is a new `help_downsize()` function that outputs links to the vignette, troubleshooting instructions, and issues page (for bug reports, questions, and feature requests).
+
+
+# 2016-09-21
+
 Downsize v0.1.0 is on CRAN!
 
 

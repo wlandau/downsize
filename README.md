@@ -24,7 +24,7 @@ devtools::install_github("wlandau/downsize")
 
 # Tutorial
 
-Please refer to the [online package vignette](https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd) for the tutorial.
+The [online package vignette](https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd) has a complete tutorial.
 
 
 # Help and troubleshooting

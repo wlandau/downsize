@@ -15,6 +15,6 @@ check_downsized(big, small)
 Utility function. Checks if downsizing really happened.
 }
 \seealso{
-\code{\link{downsize}}
+\code{\link{help_downsize}}
 }
 

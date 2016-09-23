@@ -18,6 +18,6 @@ Utility function. Subset a vector/list/etc.
 \code{x} and return another with length min(length, length(x))
 }
 \seealso{
-\code{\link{downsize}}
+\code{\link{help_downsize}}
 }
 

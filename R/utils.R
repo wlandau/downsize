@@ -1,5 +1,6 @@
 #' @title Internal utility function.
-#' @seealso \code{\link{downsize}}
+#' @seealso \code{\link{help_downsize}}
+#' @export
 #' @param args named list of arguments to \code{\link{downsize}}
 #' @description Utility function. Make downsized object out of  
 #' argument \code{small} to \code{\link{downsize}}.
@@ -10,7 +11,8 @@ arg_small = function(args){
 }
 
 #' @title Internal utility function.
-#' @seealso \code{\link{downsize}}
+#' @seealso \code{\link{help_downsize}}
+#' @export
 #' @param args named list of arguments to \code{\link{downsize}}
 #' @description Utility function. Checks that arguments are valid.
 check_args = function(args){
@@ -20,7 +22,8 @@ check_args = function(args){
 }
 
 #' @title Internal utility function.
-#' @seealso \code{\link{downsize}}
+#' @seealso \code{\link{help_downsize}}
+#' @export
 #' @param big argument to \code{\link{downsize}}
 #' @param small argument to \code{\link{downsize}}
 #' @description Utility function. Checks if downsizing really happened.
@@ -32,7 +35,8 @@ check_downsized = function(big, small){
 }
 
 #' @title Internal utility function.
-#' @seealso \code{\link{downsize}}
+#' @seealso \code{\link{help_downsize}}
+#' @export
 #' @param arg_name name of an argument to \code{\link{downsize}}
 #' @description Utility function. Throw an error when downsizing fails.
 downsize_error = function(arg_name){
@@ -40,7 +44,8 @@ downsize_error = function(arg_name){
 }
 
 #' @title Internal utility function.
-#' @seealso \code{\link{downsize}}
+#' @seealso \code{\link{help_downsize}}
+#' @export
 #' @param args named list of arguments to \code{\link{downsize}}
 #' @description Utility function. Inside function \code{\link{downsize}}, 
 #' make "small" out of "big" 
@@ -56,7 +61,8 @@ make_small = function(args){
 }
 
 #' @title Internal utility function.
-#' @seealso \code{\link{downsize}}
+#' @seealso \code{\link{help_downsize}}
+#' @export
 #' @param downsize argument to \code{\link{downsize}}
 #' @description Utility function. TRUE/FALSE: should the \code{\link{downsize}} function return 
 #' a downsized replacement for "big"?
@@ -67,7 +73,8 @@ should_downsize = function(downsize){
 }
 
 #' @title Internal utility function.
-#' @seealso \code{\link{downsize}}
+#' @seealso \code{\link{help_downsize}}
+#' @export
 #' @param args named list of arguments to \code{\link{downsize}}
 #' @description Utility function. Should the "small" argument to 
 #' \code{\link{downsize}} be used? Returns \code{TRUE} if none 

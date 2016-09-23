@@ -14,6 +14,6 @@ Utility function. Make downsized object out of
 argument \code{small} to \code{\link{downsize}}.
 }
 \seealso{
-\code{\link{downsize}}
+\code{\link{help_downsize}}
 }
 

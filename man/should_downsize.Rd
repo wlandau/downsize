@@ -14,6 +14,6 @@ Utility function. TRUE/FALSE: should the \code{\link{downsize}} function return
 a downsized replacement for "big"?
 }
 \seealso{
-\code{\link{downsize}}
+\code{\link{help_downsize}}
 }
 

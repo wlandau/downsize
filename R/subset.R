@@ -1,5 +1,6 @@
 #' @title Internal utility function.
-#' @seealso \code{\link{downsize}}
+#' @seealso \code{\link{help_downsize}}
+#' @export
 #' @param x object to subset
 #' @param dim new dimensions
 #' @param random logical, whether to take a random subset or just the head.
@@ -16,7 +17,8 @@ subset_dim = function(x, dim, random){
 }
 
 #' @title Internal utility function.
-#' @seealso \code{\link{downsize}}
+#' @seealso \code{\link{help_downsize}}
+#' @export
 #' @param x object to subset
 #' @param length new length
 #' @param random logical, whether to take a random subset or just the head.
@@ -32,7 +34,8 @@ subset_length = function(x, length, random){
 }
 
 #' @title Internal utility function.
-#' @seealso \code{\link{downsize}}
+#' @seealso \code{\link{help_downsize}}
+#' @export
 #' @param x object to subset
 #' @param ncol new number of columns
 #' @param random logical, whether to take a random subset or just the head.
@@ -48,7 +51,8 @@ subset_ncol = function(x, ncol, random){
 
 
 #' @title Internal utility function.
-#' @seealso \code{\link{downsize}}
+#' @seealso \code{\link{help_downsize}}
+#' @export
 #' @param x object to subset
 #' @param nrow new number of rows
 #' @param random logical, whether to take a random subset or just the head.
@@ -63,7 +67,8 @@ subset_nrow = function(x, nrow, random){
 }
 
 #' @title Internal utility function.
-#' @seealso \code{\link{downsize}}
+#' @seealso \code{\link{help_downsize}}
+#' @export
 #' @param x object to subset
 #' @param which_dim index of dimension along which to subset
 #' @param dim_length new length/size of the dimension of \code{x} with index \code{which_dim}

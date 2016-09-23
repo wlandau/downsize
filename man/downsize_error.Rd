@@ -13,6 +13,6 @@ downsize_error(arg_name)
 Utility function. Throw an error when downsizing fails.
 }
 \seealso{
-\code{\link{downsize}}
+\code{\link{help_downsize}}
 }
 

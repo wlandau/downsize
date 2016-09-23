@@ -15,6 +15,6 @@ Utility function. Should the "small" argument to
 of the subsetting arguments (length, dim, etc.) or similar is set.
 }
 \seealso{
-\code{\link{downsize}}
+\code{\link{help_downsize}}
 }
 

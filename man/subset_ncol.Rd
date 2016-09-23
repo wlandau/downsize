@@ -18,6 +18,6 @@ Utility function. Subset an object \code{x} with columns and
 return another with min(ncol, ncol(x)) columns.
 }
 \seealso{
-\code{\link{downsize}}
+\code{\link{help_downsize}}
 }
 

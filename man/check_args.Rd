@@ -13,6 +13,6 @@ check_args(args)
 Utility function. Checks that arguments are valid.
 }
 \seealso{
-\code{\link{downsize}}
+\code{\link{help_downsize}}
 }
 

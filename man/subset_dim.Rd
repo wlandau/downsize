@@ -19,6 +19,6 @@ Utility function. Subset an object \code{x} with a
 and return another with dimensions pmin(dim, dim(x))
 }
 \seealso{
-\code{\link{downsize}}
+\code{\link{help_downsize}}
 }
 

@@ -9,7 +9,17 @@ With the `downsize` R package, you can toggle the test and production versions o
 
 # Installation
 
-First, ensure that [R](https://www.r-project.org/) is installed, as well as the dependencies in the [`DESCRIPTION`](https://github.com/wlandau/downsize/blob/master/DESCRIPTION). The `downsize` package is on [CRAN](https://cran.r-project.org/web/packages/downsize/), so you can install the latest CRAN release with `install.packages("downsize")`. To install the development version, get the [devtools](https://cran.r-project.org/web/packages/devtools/) package and then run `devtools::install_github("wlandau/downsize")`.
+First, ensure that [R](https://www.r-project.org/) is installed, as well as the dependencies in the [`DESCRIPTION`](https://github.com/wlandau/downsize/blob/master/DESCRIPTION). The `downsize` package is on [CRAN](https://cran.r-project.org/web/packages/downsize/), so you can install the latest CRAN release with
+
+```r
+install.packages("downsize")
+```
+
+To install the development version, get the [devtools](https://cran.r-project.org/web/packages/devtools/) package and then run 
+
+```r
+devtools::install_github("wlandau/downsize")
+```
 
 
 # Tutorial

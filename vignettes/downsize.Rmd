@@ -53,7 +53,7 @@ nrow(my_data) # responds to scale_down() and scale_up()
 # ...more code, time-consuming if my_data is large...
 ```
 
-Thus, tedium and human error are avoided, and the test is a close approximation to the original task at hand.
+An ideal workflow has multiple calls to `downsize()` that are configured all at once with a single call to `scale_down()` or `scale_up()` at the very beginning. Thus, tedium and human error are avoided, and the test is a close approximation to the original task at hand.
 
 # Provide your own test data
 

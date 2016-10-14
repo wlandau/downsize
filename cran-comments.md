@@ -1,8 +1,9 @@
 # Changes in version 0.2.0
 
 - Correct the author and maintainer name. Should be "William Landau", not "Landau William".
+- Deprecate functions `scale_down()`, `scale_up()`, and `scaling()` in favor of `test_mode()`, `production_mode()`, and `my_mode()`. The new naming convention is clearer and more appropriate. 
 - Add `help_downsize()` to print out helpful links to tutorials, instructions for troubleshooting, etc.
-
+- Change the help files and vignette to relfect all these chanes.
 
 # R CMD check results
 

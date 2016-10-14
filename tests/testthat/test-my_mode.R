@@ -1,0 +1,40 @@
+# library(testthat); library(downsize)
+context("my_mode")
+
+test_that("Function my_mode() runs correctly", {
+  test_mode()
+  expect_equal(my_mode(), "test mode")
+  production_mode()
+  expect_equal(my_mode(), "production mode")
+
+  test_mode()
+  library(downsize)
+  expect_equal(my_mode(), "test mode")
+
+  production_mode()
+  library(downsize)
+  expect_equal(my_mode(), "production mode")
+
+  test_mode()
+  expect_equal(my_mode(), "test mode")
+  expect_equal(my_mode(), "test mode")
+  production_mode()
+  expect_equal(my_mode(), "production mode")
+  expect_equal(my_mode(), "production mode")
+
+  test_mode()
+  test_mode()
+  expect_equal(my_mode(), "test mode")
+  production_mode()
+  production_mode()
+  expect_equal(my_mode(), "production mode")
+
+  test_mode()
+  production_mode()
+  test_mode()
+  expect_equal(my_mode(), "test mode")
+  production_mode()
+  test_mode()
+  production_mode()
+  expect_equal(my_mode(), "production mode")
+})

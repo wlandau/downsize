@@ -1,7 +1,7 @@
 # library(testthat); library(downsize)
-context("scaled down")
+context("scaling")
 
-test_that("Scaling functions run correctly", {
+test_that("Deprecated scaling functions run correctly", suppressWarnings({
   scale_down()
   expect_equal(scaling(), "scaled down")
   scale_up()
@@ -37,4 +37,4 @@ test_that("Scaling functions run correctly", {
   scale_down()
   scale_up()
   expect_equal(scaling(), "scaled up")
-})
+}))

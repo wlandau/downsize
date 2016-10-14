@@ -16,8 +16,8 @@ arguments such as \code{length} and \code{dim} are \code{NULL}.}
 \item{downsize}{\code{TRUE}/\code{FALSE} value (\code{NULL} counts as \code{FALSE}), 
 whether to replace \code{big} with a downsized object.
 Defaults to the global option \code{downsize}, which you can check with
-\code{getOption("downsize")} or the \code{\link{scaling}} function and set with functions
-\code{\link{downsize}}, \code{\link{scale_down}} or \code{\link{scale_up}}.}
+\code{getOption("downsize")} or the \code{\link{my_mode}} function and set with functions
+\code{\link{downsize}}, \code{\link{test_mode}} or \code{\link{production_mode}}.}
 
 \item{warn}{\code{TRUE/FALSE} option to warn the user if \code{big} and \code{small}
 are identical or \code{big} is smaller in memory than \code{small}.}
@@ -48,10 +48,10 @@ If the \code{downsize} argument is \code{TRUE}, a downsized replacement
 for \code{big} will be returned. In this case, arguments \code{dim}, \code{length},
  etc. take precedence over \code{small}. If the \code{downsize} argument is not set 
 manually, the global option \code{downsize} will be used. The \code{downsize} option 
-can be toggled with functions \code{\link{scale_down}} and \code{\link{scale_up}}.
+can be toggled with functions \code{\link{test_mode}} and \code{\link{production_mode}}.
 }
 \seealso{
-\code{\link{help_downsize}}, \code{\link{scale_down}}, 
-\code{\link{scale_up}}, \code{\link{scaling}}
+\code{\link{help_downsize}}, \code{\link{test_mode}}, 
+\code{\link{production_mode}}, \code{\link{my_mode}}
 }
 

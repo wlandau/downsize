@@ -25,7 +25,7 @@ But for the sake of time, you want to test and debug your code on a smaller data
 my_data <- downsize(big_data) # downsize(big = big_data)
 ```
 
-Above, `my_data` becomes `big_data` if `getOption("downsize")` is `FALSE` or `NULL` (default). If `getOption("downsize")` is `TRUE`, `big_data` becomes `head(big_data)`. You can toggle the global option `downsize` with calls to `scale_up()` and `scale_down()`, and you can override the option with `downsize(..., downsize = L)`, where `L` is `TRUE` or `FALSE`. Check if the workflow is scaled up or down with the `scaling()` function.
+Above, `my_data` becomes `big_data` if `getOption("downsize")` is `FALSE` or `NULL` (default). If `getOption("downsize")` is `TRUE`, `big_data` becomes `head(big_data)`. You can toggle the global option `downsize` with calls to `production_mode()` and `test_mode()`, and you can override the option with `downsize(..., downsize = L)`, where `L` is `TRUE` or `FALSE`. Check if the workflow is in test or production mode with the `my_mode()` function.
 
 # Example with test and production modes
 
@@ -33,27 +33,27 @@ Here is an example script in test mode.
 
 ```{r, eval = F}
 library(downsize)
-scale_down() # scales the workflow appropriately
-scaling() # shows if the workflow is scaled up or down
+test_mode() # scales the workflow appropriately
+my_mode() # shows if the workflow is in test or production mode
 big_data <- data.frame(x = rnorm(1e4), y = rnorm(1e4)) # always large
 my_data <- downsize(big_data) # either large or small
-nrow(my_data) # responds to scale_down() and scale_up()
+nrow(my_data) # responds to test_mode() and production_mode()
 # ...more code, time-consuming if my_data is large...
 ```
 
-To scale up the workflow to production mode, replace `scale_down()` with `scale_up()` and **leave everything else exactly the same**.
+To scale up the workflow up to production mode, replace `test_mode()` with `production_mode()` and **leave everything else exactly the same**.
 
 ```{r, eval = F}
 library(downsize)
-scale_up() # scales the workflow appropriately
-scaling() # shows if the workflow is scaled up or down
+production_mode() # scales the workflow appropriately
+my_mode() # shows if the workflow is in test or production mode
 big_data <- data.frame(x = rnorm(1e4), y = rnorm(1e4)) # always large
 my_data <- downsize(big_data) # either large or small
-nrow(my_data) # responds to scale_down() and scale_up()
+nrow(my_data) # responds to test_mode() and production_mode()
 # ...more code, time-consuming if my_data is large...
 ```
 
-An ideal workflow has multiple calls to `downsize()` that are configured all at once with a single call to `scale_down()` or `scale_up()` at the very beginning. Thus, tedium and human error are avoided, and the test is a close approximation to the original task at hand.
+An ideal workflow has multiple calls to `downsize()` that are configured all at once with a single call to `test_mode()` or `production_mode()` at the very beginning. Thus, tedium and human error are avoided, and the test is a close approximation to the original task at hand.
 
 # Provide your own test data
 
@@ -63,8 +63,8 @@ You can provide a replacement for `big_data` using argument `small` in `downsize
 library(downsize)
 big_data <- data.frame(x = rnorm(1e4), y = rnorm(1e4))
 small_data <- data.frame(x = runif(16), y = runif(16))
-scale_down()
-scaling() # getOption("downsize") is TRUE
+test_mode()
+my_mode() # getOption("downsize") is TRUE
 my_data <- downsize(big_data, small_data) # downsize(big = big_data, small = small_data)
 identical(my_data, small_data)
 ```
@@ -73,10 +73,10 @@ If you set `small` yourself, be sure that subsequent code can accept both `small
 
 # Subsetting
 
-The command `my_data <- downsize(big = big_data)` is equivalent to `my_data <- downsize(big = big_data, nrow = 6)`. There are multiple ways to subset argument `big` in `downsize()` when it is time to scale down. As in the following examples, be sure that `small` is set to `NULL` (default).
+The command `my_data <- downsize(big = big_data)` is equivalent to `my_data <- downsize(big = big_data, nrow = 6)`. There are multiple ways to subset argument `big` in `downsize()` when it is time to scale down to test mode. As in the following examples, be sure that `small` is set to `NULL` (default).
 
 ```{r}
-scale_down()
+test_mode()
 downsize(1:10, length = 2)
 m <- matrix(1:36, ncol = 6)
 downsize(m, ncol = 2)
@@ -102,19 +102,19 @@ downsize(m, ncol = 2, random = T)
 
 # Interchange code blocks
 
-You can interchange entire blocks of code based on the scaling of the workload.
+You can interchange entire blocks of code based on the scaling/mode of the workload.
 
 ```{r}
-scale_down()
+test_mode()
 downsize(big = {a = 1; a + 10}, small = {a = 1; a + 1})
-scale_up()
+production_mode()
 downsize(big = {a = 1; a + 10}, small = {a = 1; a + 1})
 ```
 
 Variables set in code blocks are available after calls to `downsize()`.
 
 ```{r}
-scale_down()
+test_mode()
 tmp <- downsize(
   big = {
     x = "long code"
@@ -125,7 +125,7 @@ tmp <- downsize(
     y = 3.14
   })
 x == "short code" & y == 3.14
-scale_up()
+production_mode()
 tmp <- downsize(
   big = {
     x = "long code"

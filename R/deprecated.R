@@ -28,3 +28,46 @@ ds = function(big, small = NULL, downsize = getOption("downsize"), warn = TRUE,
   downsize(big = big, small = small, downsize = downsize, warn = warn,
     random = random, length = length, dim = dim, ncol = ncol, nrow = nrow)
 }
+
+#' @title Deprecated function \code{scale_down}
+#' @description Deprecated. Use \code{\link{test_mode}} instead.
+#' Calls \code{options(downsize = TRUE)} to scale down a workflow.
+#' This affects the \code{\link{downsize}} function.
+#' Use the \code{\link{help_downsize}} function to get more help.
+#' @details Use the \code{\link{help_downsize}} function to get more help.
+#' @seealso \code{\link{help_downsize}}, \code{\link{test_mode}}
+#' \code{\link{scaling}}
+#' @export
+scale_down = function(){
+  .Deprecated("test_mode", package="downsize")
+  options(downsize = TRUE)	
+}
+
+#' @title Deprecated function \code{scale_up}
+#' @description Deprecated. Use \code{\link{production_mode}} instead.
+#' Calls \code{options(downsize = FALSE)} to scale up a workflow.
+#' This affects the \code{\link{downsize}} function.
+#' Use the \code{\link{help_downsize}} function to get more help.
+#' @details Use the \code{\link{help_downsize}} function to get more help.
+#' @seealso \code{\link{help_downsize}}, \code{\link{production_mode}}
+#' @export
+scale_up = function(){
+  .Deprecated("production_mode", package="downsize")
+  options(downsize = FALSE)	
+}
+
+#' @title Deprecated function \code{scaling}
+#' @description Deprecated. Use \code{\link{my_mode}} instead.
+#' Checks whether the current workflow is scaled up or down.
+#' Use the \code{\link{help_downsize}} function to get more help.
+#' @details Use the \code{\link{help_downsize}} function to get more help.
+#' @seealso \code{\link{help_downsize}}, \code{\link{my_mode}}
+#' @export
+#' @return \code{"scaled down"} if \code{getOption("downsize")} is \code{TRUE} 
+#' and "scaled up" if \code{getOption("downsize")} is \code{FALSE} or \code{NULL}.
+scaling = function(){
+  .Deprecated("my_mode", package="downsize")
+  downsize = getOption("downsize")
+  if(is.null(downsize)) downsize = FALSE	
+  ifelse(downsize, "scaled down", "scaled up")
+}

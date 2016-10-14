@@ -1,22 +1,18 @@
 # library(testthat); library(downsize)
 context("ds")
 
-test_that("Deprecated function ds() warns correctly", {
-  expect_warning(x <- ds(1:10, 2))
-})
-
 test_that("Deprecated function ds() selects code blocks correctly", suppressWarnings({
   for(i in 1:3){
-    scale_down()
+    test_mode()
     x = ds(big = {a = 1; a + 10}, small = {a = 1; a + 1})
     expect_equal(x, 2)
-    scale_up()
+    production_mode()
     x = ds(big = {a = 1; a + 10}, small = {a = 1; a + 1})
     expect_equal(x, 11)
   }
 
   for(i in 1:3){
-    scale_down()
+    test_mode()
     tmp <- ds(
       big = {
         x = "long code"
@@ -28,7 +24,7 @@ test_that("Deprecated function ds() selects code blocks correctly", suppressWarn
       })
     expect_equal(x, "short code")
     expect_equal(y, 3.14)
-    scale_up()
+    production_mode()
     tmp <- ds(
       big = {
         x = "long code"
@@ -49,10 +45,10 @@ test_that("Deprecated function ds() chooses objects and subsetting correctly", s
   small = mtcars
   big = rbind(mtcars, mtcars)
 
-  scale_up()
+  production_mode()
   expect_equal(ds(big), big)
   expect_equal(ds(big, small), big)
-  scale_down()
+  test_mode()
   expect_equal(ds(big), head(big))
   expect_equal(ds(big, small), small)
   expect_equal(ds(big, small), small)

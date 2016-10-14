@@ -1,5 +1,5 @@
 Package: downsize
-Title: A Tool to Scale Down Large Workflows for Testing
+Title: A Tool to Downsize Large Workflows for Testing
 Version: 0.1.1.9000
 Date: 2016-09-22
 Authors@R: person(family = "Landau", given = "William", 

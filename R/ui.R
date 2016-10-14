@@ -54,7 +54,7 @@ my_mode = function(){
 }
 
 #' @title Function \code{production_mode}
-#' @description Call \code{options(downsize = FALSE)} to scale up a workflow.
+#' @description Calls \code{options(downsize = FALSE)} to scale up a workflow.
 #' This affects the \code{\link{downsize}} function.
 #' Use the \code{\link{help_downsize}} function to get more help.
 #' @details Use the \code{\link{help_downsize}} function to get more help.

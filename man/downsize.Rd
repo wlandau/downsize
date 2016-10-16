@@ -39,7 +39,9 @@ A downsized object if \code{downsize} is \code{TRUE} and \code{big} otherwise.
 }
 \description{
 Replace \code{big} with a downsized object 
-if the \code{downsize} argument (or global \code{downsize} option) is \code{TRUE}.
+if the \code{downsize} argument (or the \code{downsize} global option) is \code{TRUE}.
+The \code{downsize} global option can be toggled with functions 
+\code{\link{test_mode}} and \code{\link{production_mode}}.
 Use the \code{\link{help_downsize}} function to get more help.
 }
 \details{
@@ -47,7 +49,7 @@ Use the \code{\link{help_downsize}} function to get more help.
 If the \code{downsize} argument is \code{TRUE}, a downsized replacement 
 for \code{big} will be returned. In this case, arguments \code{dim}, \code{length},
  etc. take precedence over \code{small}. If the \code{downsize} argument is not set 
-manually, the global option \code{downsize} will be used. The \code{downsize} option 
+manually, the \code{downsize} global option will be used. The \code{downsize} global option 
 can be toggled with functions \code{\link{test_mode}} and \code{\link{production_mode}}.
 }
 \seealso{

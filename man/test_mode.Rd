@@ -7,7 +7,8 @@
 test_mode()
 }
 \description{
-Calls \code{options(downsize = TRUE)} to scale down a workflow.
+Calls \code{options(downsize = TRUE)} to scale down a workflow
+to test mode.
 This affects the \code{\link{downsize}} function.
 Use the \code{\link{help_downsize}} function to get more help.
 }

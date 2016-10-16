@@ -7,7 +7,8 @@
 production_mode()
 }
 \description{
-Calls \code{options(downsize = FALSE)} to scale up a workflow.
+Calls \code{options(downsize = FALSE)} to scale up a workflow
+to production mode.
 This affects the \code{\link{downsize}} function.
 Use the \code{\link{help_downsize}} function to get more help.
 }

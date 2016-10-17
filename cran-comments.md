@@ -1,1 +1,1 @@
-I know this submission is only 3 days since the last one, and I apologize. Version 0.2.1 is an urgent patch. On 10/17, I found out that the functionality promised in the "Interchange code blocks" section of the vignette has been broken ever since the first CRAN submission. In test mode, the code block in argument `big` of `downsize()` should not be evaluated. This is now fixed and unit-tested.
+Thanks to [Kurt Hornik](http://statmath.wu-wien.ac.at/~hornik/software.html) for approving my submissions extremely fast and being patient with my patches.

@@ -1,3 +1,8 @@
+# 2016-10-17
+
+Version 0.2.1 is an urgent patch. On 10/17, I found out that the functionality promised in the "Interchange code blocks" section of the vignette has been broken ever since the first CRAN submission. In test mode, the code block in argument big of downsize() should not be evaluated. This is now fixed and unit-tested. The patch is on CRAN, but it will take a day or two for the Mac and Windows builds to post.
+
+
 # 2016-10-16
 
 Version 0.2.0 is on CRAN. Here are the changes.

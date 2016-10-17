@@ -73,7 +73,7 @@ If you set `small` yourself, be sure that subsequent code can accept both `small
 
 # Subsetting
 
-The command `my_data <- downsize(big = big_data)` is equivalent to `my_data <- downsize(big = big_data, nrow = 6)`. There are multiple ways to subset argument `big` in `downsize()` when it is time to scale down to test mode. As in the following examples, be sure that `small` is set to `NULL` (default).
+The command `my_data <- downsize(big = big_data)` is equivalent to `my_data <- downsize(big = big_data, nrow = 6)`. There are multiple ways to subset argument `big` in `downsize()` when it is time to scale down to test mode. As in the following examples, be sure that `small` is set to `NULL` (default). Otherwise, subsetter arguments such as `dim`, `length`, `nrow`, and `ncol` will be ignored.
 
 ```{r}
 test_mode()
@@ -99,8 +99,6 @@ Set `random` to `TRUE` to take a random subset of your data rather than just the
 set.seed(6)
 downsize(m, ncol = 2, random = T)
 ```
-
-If `small` is not `NULL`, then all subsetter arguments such as `dim`,  `length`, `nrow`, and `ncol` will be ignored.
 
 # Interchange code blocks
 

@@ -69,6 +69,7 @@ test_that("Function downsize() chooses objects and subsetting correctly", {
   expect_error(downsize(big, nrow = 0))
   expect_error(downsize(big, dim = c(0, 0)))
 
+  expect_equal(downsize(big = 1:10, small = "small", length = 2), "small")
   expect_equal(downsize(big, ncol = 3), big[,1:3])  
   expect_equal(downsize(big, nrow = 2), big[1:2,])  
   expect_equal(downsize(big, ncol = 3, nrow = 2), big[1:2,1:3])  

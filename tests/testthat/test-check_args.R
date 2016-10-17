@@ -13,11 +13,6 @@ test_that("Function check_args() runs correctly", {
     expect_error(check_args(x))
     x$random = "random"
     expect_error(check_args(x))
-    expect_error(check_args(c(args, length = 2)))
-    expect_error(check_args(c(args, nrow = 4)))
-    expect_error(check_args(c(args, ncol = 4)))
-    expect_error(check_args(c(args, dim = c(5, 1))))
-    expect_error(check_args(c(args, nrow = 2, dim = c(5, 1))))
     expect_error(check_args(list(big = 10)))
   }
 })

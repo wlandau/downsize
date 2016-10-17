@@ -47,8 +47,11 @@ Use the \code{\link{help_downsize}} function to get more help.
 \details{
 Use the \code{\link{help_downsize}} function to get more help.
 If the \code{downsize} argument is \code{TRUE}, a downsized replacement 
-for \code{big} will be returned. In this case, arguments \code{dim}, \code{length},
- etc. take precedence over \code{small}. If the \code{downsize} argument is not set 
+for \code{big} will be returned. In this case, argument \code{small} takes precedence
+over subsetter arguments such as \code{dim}, \code{length}, \code{nrow}, and \code{ncol}.
+That is, if \code{small} is not \code{NULL}, then \code{small} will be returned even if 
+\code{dim} is not \code{NULL}.
+If the \code{downsize} argument is not set 
 manually, the \code{downsize} global option will be used. The \code{downsize} global option 
 can be toggled with functions \code{\link{test_mode}} and \code{\link{production_mode}}.
 }

@@ -53,7 +53,6 @@ test_that("Deprecated function ds() chooses objects and subsetting correctly", s
   expect_equal(ds(big, small), small)
   expect_equal(ds(big, small), small)
 
-  expect_error(ds(big, small = 1, ncol = 0))
   expect_error(ds(big, ncol = 0))
   expect_error(ds(big, nrow = 0))
   expect_error(ds(big, dim = c(0, 0)))

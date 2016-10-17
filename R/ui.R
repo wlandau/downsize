@@ -6,8 +6,11 @@
 #' Use the \code{\link{help_downsize}} function to get more help.
 #' @details Use the \code{\link{help_downsize}} function to get more help.
 #' If the \code{downsize} argument is \code{TRUE}, a downsized replacement 
-#' for \code{big} will be returned. In this case, arguments \code{dim}, \code{length},
-#'  etc. take precedence over \code{small}. If the \code{downsize} argument is not set 
+#' for \code{big} will be returned. In this case, argument \code{small} takes precedence
+#' over subsetter arguments such as \code{dim}, \code{length}, \code{nrow}, and \code{ncol}.
+#' That is, if \code{small} is not \code{NULL}, then \code{small} will be returned even if 
+#' \code{dim} is not \code{NULL}.
+#' If the \code{downsize} argument is not set 
 #' manually, the \code{downsize} global option will be used. The \code{downsize} global option 
 #' can be toggled with functions \code{\link{test_mode}} and \code{\link{production_mode}}.
 #' @seealso \code{\link{help_downsize}}, \code{\link{test_mode}}, 
@@ -33,15 +36,17 @@
 #' @param nrow Downsize \code{big} to this number of rows if \code{downsize} is \code{TRUE}.
 downsize = function(big, small = NULL, downsize = getOption("downsize"), warn = TRUE,
   random = FALSE, length = NULL, dim = NULL, ncol = NULL, nrow = NULL){
-  if(!should_downsize(downsize)) return(big)
+  if(!should_downsize(downsize)){ 
+    return(big)
+  } else if(!is.null(small)) {
+    return(small)
+  }
   args = mget(names(formals()),sys.frame(sys.nframe()))
-  small = make_small(args)
-  if(warn) check_downsized(big, small)
-  small
+  make_small(args)
 }
 
 #' @title Function \code{my_mode}
-#' @description Check whether the current workflow is production mode or down.
+#' @description Check whether the current workflow is production mode or test mode.
 #' Use the \code{\link{help_downsize}} function to get more help.
 #' @details Use the \code{\link{help_downsize}} function to get more help.
 #' @seealso \code{\link{help_downsize}}, \code{\link{downsize}}, 

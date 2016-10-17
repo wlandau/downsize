@@ -100,6 +100,8 @@ set.seed(6)
 downsize(m, ncol = 2, random = T)
 ```
 
+If `small` is not `NULL`, then all subsetter arguments such as `dim`,  `length`, `nrow`, and `ncol` will be ignored.
+
 # Interchange code blocks
 
 You can interchange entire blocks of code based on the scaling/mode of the workload.
@@ -137,8 +139,6 @@ tmp <- downsize(
   })
 x == "long code" & y == 1000
 ```
-
-The `downsize()` function checks the values of `big` and `small`, so any  code blocks passed as arguments must return non-`NULL` values. To avoid warnings, the return value of `small` should be different from and no larger in memory than that of `big` (or just call `downsize(..., warn = FALSE)`). If subsetter arguments such as `dim` and `length` are used, they apply to the return value of `big` rather than any variables defined in the code block.
 
 # Help and troubleshooting
 

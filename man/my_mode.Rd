@@ -11,7 +11,7 @@ my_mode()
 and "production mode" if \code{getOption("downsize")} is \code{FALSE} or \code{NULL}.
 }
 \description{
-Check whether the current workflow is production mode or down.
+Check whether the current workflow is production mode or test mode.
 Use the \code{\link{help_downsize}} function to get more help.
 }
 \details{

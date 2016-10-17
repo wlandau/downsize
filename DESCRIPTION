@@ -10,8 +10,7 @@ Depends:
     R (>= 3.0.0)
 Imports:
     dplyr,
-    R.utils,
-    utils
+    R.utils
 Suggests:
     knitr,
     rmarkdown,

@@ -8,9 +8,6 @@ test_that("Function make_small() runs correctly", {
   args0 = args
   expect_equal(make_small(args), args$small)
 
-  args$nrow = 5
-  expect_error(make_small(args))
-
   args$small = args0$small = NULL
   args$nrow = 5
   expect_equal(make_small(args), args$big[1:5,])

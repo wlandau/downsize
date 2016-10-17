@@ -2,7 +2,6 @@
 
 export(arg_small)
 export(check_args)
-export(check_downsized)
 export(downsize)
 export(downsize_error)
 export(ds)
@@ -23,5 +22,3 @@ export(test_mode)
 export(use_arg_small)
 importFrom(R.utils,extract.array)
 importFrom(dplyr,"%>%")
-importFrom(utils,head)
-importFrom(utils,object.size)

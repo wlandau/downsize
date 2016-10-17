@@ -17,21 +17,6 @@ arg_small = function(args){
 #' @description Utility function. Checks that arguments are valid.
 check_args = function(args){
   stopifnot(is.logical(args$warn) & is.logical(args$random))
-  if(!use_arg_small(args) & !is.null(args$small))
-    stop("argument \"small\" cannot be used alongside subsetters like \"dim\" and \"length\".")
-}
-
-#' @title Internal utility function.
-#' @seealso \code{\link{help_downsize}}
-#' @export
-#' @param big argument to \code{\link{downsize}}
-#' @param small argument to \code{\link{downsize}}
-#' @description Utility function. Checks if downsizing really happened.
-check_downsized = function(big, small){
-  if(identical(big, small))
-    warning("downsized object is identical to \"big\".")
-  if(object.size(big) < object.size(small))
-    warning("downsized object is bigger in memory than \"big\".")
 }
 
 #' @title Internal utility function.

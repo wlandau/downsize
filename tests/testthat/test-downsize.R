@@ -2,6 +2,17 @@
 context("downsize")
 
 test_that("Function downsize() selects code blocks correctly", {
+
+  test_mode()
+  downsize(big = {a = 1; a + 10}, small = {b = 1; b + 1})
+  expect_equal(b, 1)
+  expect_error(print(a))
+
+  production_mode()
+  downsize(big = {x = 1; x + 10}, small = {y = 1; y + 1})
+  expect_equal(x, 1)
+  expect_error(print(y))
+
   for(i in 1:3){
     test_mode()
     x = downsize(big = {a = 1; a + 10}, small = {a = 1; a + 1})
@@ -52,12 +63,8 @@ test_that("Function downsize() chooses objects and subsetting correctly", {
   expect_equal(downsize(big), head(big))
   expect_equal(downsize(big, small), small)
   expect_equal(downsize(big, small), small)
-
-  expect_warning(downsize(1, 1))
-  expect_warning(x <- downsize(1, rnorm(1e3)))
   expect_silent(x <- downsize(1, rnorm(1e3), warn = F))
 
-  expect_error(downsize(big, small = 1, ncol = 0))
   expect_error(downsize(big, ncol = 0))
   expect_error(downsize(big, nrow = 0))
   expect_error(downsize(big, dim = c(0, 0)))

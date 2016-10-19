@@ -1,7 +1,20 @@
 # library(testthat); library(downsize)
 context("downsize")
 
+f = function(){
+  downsize(big = {x <- "big"}, small = {x <- "small"})
+}
+
 test_that("Function downsize() selects code blocks correctly", {
+
+  x = "global"
+  expect_equal(x, "global")
+  test_mode()
+  expect_equal(f(), "small")
+  expect_equal(x, "global")
+  production_mode()
+  expect_equal(f(), "big")
+  expect_equal(x, "global")
 
   test_mode()
   downsize(big = {a = 1; a + 10}, small = {b = 1; b + 1})

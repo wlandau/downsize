@@ -5,8 +5,7 @@ Authors@R: person(family = "Landau", given = "William",
     email = "will.landau@gmail.com", role = c("aut", "cre"))
 Description: Toggles the test and production versions of a large workflow.
 License: GPL (>= 3)
-Depends:
-    R (>= 3.0.0)
+Depends: R (>= 3.0.0)
 Imports:
     dplyr,
     R.utils,

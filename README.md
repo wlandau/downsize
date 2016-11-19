@@ -18,13 +18,23 @@ install.packages("downsize")
 To install the development version, get the [devtools](https://cran.r-project.org/web/packages/devtools/) package and then run 
 
 ```r
-devtools::install_github("wlandau/downsize")
+devtools::install_github("wlandau/downsize", build = TRUE)
+```
+
+If you specify a tag, you can install a GitHub release.
+
+```
+devtools::install_github("wlandau/downsize@v0.2.1", build = TRUE)
 ```
 
 
 # Tutorial
 
-The [online package vignette](https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd) has a complete tutorial.
+The [online package vignette](https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd) has a complete tutorial. You can the compiled version from an R session.
+
+```r
+vignette("downsize")
+```
 
 
 # Help and troubleshooting

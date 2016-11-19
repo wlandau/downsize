@@ -20,7 +20,8 @@ README.md
 README.html
 TROUBLESHOOTING.md
 TROUBLESHOOTING.html
-vignettes/downsize.html
+vignettes/.*\.html
+vignettes/.*\.log
 ^.*\.log$
 ^.*\.Rproj$
 ^\.Rproj\.user$

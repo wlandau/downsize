@@ -1,9 +1,10 @@
-^authors.html$
 ^index.html$
+^authors.html$
 ^articles$
 ^news$
 ^reference$
 ^_site$
+^_config.yml$
 .DS_Store
 .git
 .gitignore
@@ -19,7 +20,7 @@ README.html
 TROUBLESHOOTING.md
 TROUBLESHOOTING.html
 vignettes/downsize.html
-vignettes/downsize.log
+^.*\.log$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.travis\.yml$

@@ -23,7 +23,7 @@ devtools::install_github("wlandau/downsize", build = TRUE)
 
 If you specify a tag, you can install a GitHub release.
 
-```
+```r
 devtools::install_github("wlandau/downsize@v0.2.1", build = TRUE)
 ```
 

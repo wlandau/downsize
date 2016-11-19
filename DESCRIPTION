@@ -16,6 +16,6 @@ Suggests:
     rmarkdown,
     testthat
 VignetteBuilder: knitr
-URL: https://github.com/wlandau/downsize
+URL: http://will-landau.com/downsize
 BugReports: https://github.com/wlandau/downsize/issues
 RoxygenNote: 5.0.1

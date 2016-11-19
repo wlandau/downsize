@@ -30,7 +30,7 @@ devtools::install_github("wlandau/downsize@v0.2.1", build = TRUE)
 
 # Tutorial
 
-The [online package vignette](https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd) has a complete tutorial. You can the load the compiled version from an R session.
+The [online package vignette](http://will-landau.com/downsize/articles/downsize.html) has a complete tutorial. You can the load the compiled version from an R session.
 
 ```r
 vignette("downsize")

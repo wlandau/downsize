@@ -1,3 +1,9 @@
+^authors.html$
+^index.html$
+^articles$
+^news$
+^reference$
+^_site$
 .DS_Store
 .git
 .gitignore

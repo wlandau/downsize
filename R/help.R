@@ -9,7 +9,7 @@ help_downsize = function(){
     "    https://CRAN.R-project.org/package=downsize/vignettes/downsize.html",
     "    https://cran.r-project.org/web/packages/downsize/vignettes/downsize.html",
     "The vignette of the development version has a full tutorial at the webpage below.",
-    "    https://github.com/wlandau/downsize/blob/master/vignettes/downsize.Rmd",
+    "    http://will-landau.com/downsize/articles/downsize.html",
     "For troubleshooting, navigate to the link below.",
     "    https://github.com/wlandau/downsize/blob/master/TROUBLESHOOTING.md",
     "To submit bug reports, usage questions, feature requests, etc., navigate to the link below.",

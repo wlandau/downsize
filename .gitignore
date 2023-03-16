@@ -17,3 +17,4 @@
 .Rhistory
 .Rproj.user
 vignettes/*.html
+docs

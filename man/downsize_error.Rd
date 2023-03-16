@@ -15,4 +15,3 @@ Utility function. Throw an error when downsizing fails.
 \seealso{
 \code{\link{help_downsize}}
 }
-

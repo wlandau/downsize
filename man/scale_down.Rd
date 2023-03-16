@@ -19,4 +19,3 @@ Use the \code{\link{help_downsize}} function to get more help.
 \code{\link{help_downsize}}, \code{\link{test_mode}}
 \code{\link{scaling}}
 }
-

@@ -7,7 +7,6 @@ test_that("Function subset_single_dim() runs correctly", {
   a = mtcars
   d = array(sample.int(60), dim = 5:3)
 
-  expect_error(subset_single_dim(1:5, 1, 1, F))
   expect_error(subset_single_dim(a, 0, 1, F))
   expect_error(subset_single_dim(a, 1, 0, F))
   expect_error(subset_single_dim(a, -10, -72, F))

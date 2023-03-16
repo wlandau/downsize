@@ -15,4 +15,3 @@ Utility function. Checks that arguments are valid.
 \seealso{
 \code{\link{help_downsize}}
 }
-

@@ -20,4 +20,3 @@ return another with min(nrow, nrow(x)) columns.
 \seealso{
 \code{\link{help_downsize}}
 }
-

@@ -21,4 +21,3 @@ and return another with dimensions pmin(dim, dim(x))
 \seealso{
 \code{\link{help_downsize}}
 }
-

@@ -16,4 +16,3 @@ argument \code{small} to \code{\link{downsize}}.
 \seealso{
 \code{\link{help_downsize}}
 }
-

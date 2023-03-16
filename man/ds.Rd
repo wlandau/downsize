@@ -4,8 +4,17 @@
 \alias{ds}
 \title{Function \code{ds}. Deprecated.}
 \usage{
-ds(big, small = NULL, downsize = getOption("downsize"), warn = TRUE,
-  random = FALSE, length = NULL, dim = NULL, ncol = NULL, nrow = NULL)
+ds(
+  big,
+  small = NULL,
+  downsize = getOption("downsize"),
+  warn = TRUE,
+  random = FALSE,
+  length = NULL,
+  dim = NULL,
+  ncol = NULL,
+  nrow = NULL
+)
 }
 \arguments{
 \item{big}{Object to return if \code{downsize} is \code{FALSE} or \code{NULL}.}
@@ -45,4 +54,3 @@ See \code{\link{help_downsize}} for help.
 \code{\link{help_downsize}}, \code{\link{downsize}}, \code{\link{scale_down}}, 
 \code{\link{scale_up}}, \code{\link{scaling}}
 }
-

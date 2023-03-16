@@ -18,4 +18,4 @@ Suggests:
 VignetteBuilder: knitr
 URL: https://github.com/wlandau/downsize
 BugReports: https://github.com/wlandau/downsize/issues
-RoxygenNote: 5.0.1
+RoxygenNote: 7.2.3

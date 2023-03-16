@@ -19,4 +19,3 @@ Use the \code{\link{help_downsize}} function to get more help.
 \code{\link{help_downsize}}, \code{\link{downsize}}, \code{\link{production_mode}}, \code{\link{my_mode}},
 \code{\link{my_mode}}
 }
-

@@ -18,4 +18,3 @@ the subsetting arguments to \code{\link{downsize}} are set (length, dim, etc.)
 \seealso{
 \code{\link{help_downsize}}
 }
-

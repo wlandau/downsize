@@ -17,4 +17,3 @@ of the subsetting arguments (length, dim, etc.) or similar is set.
 \seealso{
 \code{\link{help_downsize}}
 }
-

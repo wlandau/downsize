@@ -4,8 +4,17 @@
 \alias{downsize}
 \title{Function \code{downsize}. Main function of the \code{downsize} package.}
 \usage{
-downsize(big, small = NULL, downsize = getOption("downsize"), warn = TRUE,
-  random = FALSE, length = NULL, dim = NULL, ncol = NULL, nrow = NULL)
+downsize(
+  big,
+  small = NULL,
+  downsize = getOption("downsize"),
+  warn = TRUE,
+  random = FALSE,
+  length = NULL,
+  dim = NULL,
+  ncol = NULL,
+  nrow = NULL
+)
 }
 \arguments{
 \item{big}{Object to return if \code{downsize} is \code{FALSE} or \code{NULL}.}
@@ -59,4 +68,3 @@ can be toggled with functions \code{\link{test_mode}} and \code{\link{production
 \code{\link{help_downsize}}, \code{\link{test_mode}}, 
 \code{\link{production_mode}}, \code{\link{my_mode}}
 }
-

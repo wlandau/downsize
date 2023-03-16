@@ -13,4 +13,3 @@ Prints links for tutorials, troubleshooting, bug reports, etc.
 \code{\link{downsize}}, \code{\link{scale_down}}, 
 \code{\link{scale_up}}, \code{\link{scaling}}
 }
-

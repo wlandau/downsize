@@ -21,4 +21,3 @@ Use the \code{\link{help_downsize}} function to get more help.
 \seealso{
 \code{\link{help_downsize}}, \code{\link{my_mode}}
 }
-

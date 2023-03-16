@@ -16,4 +16,3 @@ a downsized replacement for "big"?
 \seealso{
 \code{\link{help_downsize}}
 }
-

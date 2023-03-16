@@ -20,4 +20,3 @@ Utility function. Subset a vector/list/etc.
 \seealso{
 \code{\link{help_downsize}}
 }
-

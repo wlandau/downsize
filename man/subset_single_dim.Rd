@@ -22,4 +22,3 @@ single dimension with index \code{which_dim}.
 \seealso{
 \code{\link{help_downsize}}
 }
-
